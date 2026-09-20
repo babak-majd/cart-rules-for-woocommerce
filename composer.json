@@ -1,0 +1,27 @@
+{
+    "name": "babak-majd/cart-rules-for-woocommerce",
+    "description": "Minimum quantity and spend per product, a minimum order amount for the cart, and allowed shipping methods per product.",
+    "type": "wordpress-plugin",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        { "name": "Baabak Majd", "homepage": "https://bobclub.ir" }
+    ],
+    "require": {
+        "php": ">=7.4"
+    },
+    "require-dev": {
+        "wp-coding-standards/wpcs": "^3.1",
+        "woocommerce/woocommerce-sniffs": "^1.0",
+        "phpcompatibility/phpcompatibility-wp": "^2.1",
+        "dealerdirect/phpcodesniffer-composer-installer": "^1.0"
+    },
+    "scripts": {
+        "lint": "phpcs",
+        "lint:fix": "phpcbf"
+    },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    }
+}

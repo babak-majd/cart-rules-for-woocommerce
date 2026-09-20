@@ -1,0 +1,6 @@
+/dist/
+*.zip
+/vendor/
+.claude/
+.DS_Store
+._*

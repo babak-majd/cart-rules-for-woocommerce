@@ -1,0 +1,250 @@
+# Copyright (C) 2026 Baabak Majd
+# This file is distributed under the GPL-2.0-or-later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Cart Rules for WooCommerce 1.0.0\n"
+"Report-Msgid-Bugs-To: https://github.com/babak-majd/cart-rules-for-woocommerce/issues\n"
+"POT-Creation-Date: 2026-09-20 17:40+0000\n"
+"PO-Revision-Date: 2026-09-20 17:40+0000\n"
+"Last-Translator: Baabak Majd <baabak.majd@gmail.com>\n"
+"Language-Team: Persian\n"
+"Language: fa_IR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Domain: cart-rules-for-woocommerce\n"
+
+#: cart-rules-for-woocommerce.php:72
+msgid "%1$s needs WooCommerce %2$s or newer. Please update WooCommerce."
+msgstr "%1$s به ووکامرس نسخهٔ %2$s یا جدیدتر نیاز دارد. لطفاً ووکامرس را به‌روز کنید."
+
+#: cart-rules-for-woocommerce.php:74
+msgid "%s needs WooCommerce to be installed and active."
+msgstr "%s برای کار کردن به نصب و فعال بودن ووکامرس نیاز دارد."
+
+#: includes/admin/class-crfw-product-data.php:44
+msgid "Minimum quantity"
+msgstr "حداقل تعداد"
+
+#: includes/admin/class-crfw-product-data.php:47
+msgid "Store default: %s"
+msgstr "پیش‌فرض فروشگاه: %s"
+
+#: includes/admin/class-crfw-product-data.php:48
+msgid "No minimum"
+msgstr "بدون حداقل"
+
+#: includes/admin/class-crfw-product-data.php:50
+msgid "The smallest quantity of this product a customer may order. For a variable product the variations count together. Leave empty to use the store default."
+msgstr "کمترین تعدادی از این محصول که مشتری می‌تواند سفارش دهد. در محصول متغیر، تعداد همهٔ متغیرها با هم جمع می‌شود. برای استفاده از پیش‌فرض فروشگاه خالی بگذارید."
+
+#: includes/admin/class-crfw-product-data.php:64
+msgid "Minimum spend (%s)"
+msgstr "حداقل مبلغ خرید (%s)"
+
+#: includes/admin/class-crfw-product-data.php:70
+msgid "The smallest amount a customer must spend on this product (quantity × price). Leave empty to use the store default."
+msgstr "کمترین مبلغی که مشتری باید برای این محصول بپردازد (تعداد × قیمت). برای استفاده از پیش‌فرض فروشگاه خالی بگذارید."
+
+#: includes/admin/class-crfw-product-data.php:79
+msgid "No minimums"
+msgstr "بدون حد نصاب"
+
+#: includes/admin/class-crfw-product-data.php:80
+msgid "Exempt this product from every minimum, including the store defaults."
+msgstr "این محصول از همهٔ حد نصاب‌ها، از جمله پیش‌فرض‌های فروشگاه، معاف باشد."
+
+#: includes/admin/class-crfw-product-data.php:101
+msgid "Allowed shipping methods"
+msgstr "روش‌های ارسال مجاز"
+
+#: includes/admin/class-crfw-product-data.php:102
+msgid "Any shipping method"
+msgstr "همهٔ روش‌های ارسال"
+
+#: includes/admin/class-crfw-product-data.php:111
+msgid "Only these methods are offered when this product is in the cart. With several restricted products in one cart, only the methods they all allow are offered. Leave empty to allow every method."
+msgstr "وقتی این محصول در سبد باشد فقط این روش‌ها نمایش داده می‌شوند. اگر چند محصول محدودشده در یک سبد باشند، فقط روش‌های مشترک بین همهٔ آن‌ها نمایش داده می‌شود. برای مجاز بودن همهٔ روش‌ها خالی بگذارید."
+
+#: includes/admin/class-crfw-product-data.php:114
+msgid "No shipping methods are configured yet. Add some under WooCommerce → Settings → Shipping."
+msgstr "هنوز هیچ روش ارسالی تعریف نشده است. از ووکامرس ← تنظیمات ← حمل و نقل اضافه کنید."
+
+#: includes/admin/class-crfw-settings.php:23
+msgid "Cart Rules"
+msgstr "قوانین سبد خرید"
+
+#: includes/admin/class-crfw-settings.php:39
+msgid "Whole cart"
+msgstr "کل سبد خرید"
+
+#: includes/admin/class-crfw-settings.php:41
+msgid "Rules that apply to the order as a whole. Per-product minimums and allowed shipping methods are set on each product's edit screen (General and Shipping tabs)."
+msgstr "قوانینی که روی کل سفارش اعمال می‌شود. حد نصاب هر محصول و روش‌های ارسال مجاز آن در صفحهٔ ویرایش همان محصول (زبانه‌های «عمومی» و «حمل و نقل») تنظیم می‌شود."
+
+#: includes/admin/class-crfw-settings.php:47
+msgid "Minimum order amount (%s)"
+msgstr "حداقل مبلغ سفارش (%s)"
+
+#: includes/admin/class-crfw-settings.php:50
+msgid "Customers cannot check out below this amount. Leave empty for no minimum."
+msgstr "مشتری نمی‌تواند با مبلغی کمتر از این تسویه کند. برای نداشتن حداقل خالی بگذارید."
+
+#: includes/admin/class-crfw-settings.php:60
+msgid "Compare against"
+msgstr "مقایسه با"
+
+#: includes/admin/class-crfw-settings.php:61
+msgid "Which cart figure the minimum order amount is checked against. Shipping is never included; tax follows the “Display prices during cart and checkout” setting."
+msgstr "حداقل مبلغ سفارش با کدام رقم سبد مقایسه شود. هزینهٔ ارسال هیچ‌وقت حساب نمی‌شود؛ مالیات از تنظیم «نمایش قیمت‌ها در سبد خرید و تسویه» پیروی می‌کند."
+
+#: includes/admin/class-crfw-settings.php:69
+msgid "Subtotal (before coupons)"
+msgstr "جمع جزء (قبل از کوپن)"
+
+#: includes/admin/class-crfw-settings.php:70
+msgid "Total after coupons"
+msgstr "جمع پس از اعمال کوپن"
+
+#: includes/admin/class-crfw-settings.php:79
+msgid "Per-product defaults"
+msgstr "پیش‌فرض‌های هر محصول"
+
+#: includes/admin/class-crfw-settings.php:81
+msgid "Applied to every product that has no value of its own. A product can override these, or opt out with “No minimums”."
+msgstr "روی هر محصولی که مقدار اختصاصی ندارد اعمال می‌شود. هر محصول می‌تواند این‌ها را بازنویسی کند یا با گزینهٔ «بدون حد نصاب» از آن‌ها معاف شود."
+
+#: includes/admin/class-crfw-settings.php:85
+msgid "Default minimum quantity"
+msgstr "حداقل تعداد پیش‌فرض"
+
+#: includes/admin/class-crfw-settings.php:86
+msgid "The smallest quantity of any one product a customer may order."
+msgstr "کمترین تعدادی از هر محصول که مشتری می‌تواند سفارش دهد."
+
+#: includes/admin/class-crfw-settings.php:101
+msgid "Default minimum spend (%s)"
+msgstr "حداقل مبلغ خرید پیش‌فرض (%s)"
+
+#: includes/admin/class-crfw-settings.php:104
+msgid "The smallest amount a customer must spend on any one product."
+msgstr "کمترین مبلغی که مشتری باید برای هر محصول بپردازد."
+
+#: includes/admin/class-crfw-settings.php:114
+msgid "Quantity fields"
+msgstr "فیلدهای تعداد"
+
+#: includes/admin/class-crfw-settings.php:115
+msgid "Start quantity fields and “Add to cart” buttons at the product's minimum quantity"
+msgstr "فیلد تعداد و دکمهٔ «افزودن به سبد خرید» از حداقل تعداد محصول شروع شود"
+
+#: includes/admin/class-crfw-settings.php:121
+msgid "Product page"
+msgstr "صفحهٔ محصول"
+
+#: includes/admin/class-crfw-settings.php:122
+msgid "Show the product's minimum under its price"
+msgstr "حد نصاب محصول زیر قیمت آن نمایش داده شود"
+
+#: includes/admin/class-crfw-settings.php:133
+msgid "Messages"
+msgstr "پیام‌ها"
+
+#: includes/admin/class-crfw-settings.php:135
+msgid "What customers read when a rule is not met. Leave a field empty to use the default shown as its placeholder. Placeholders: {product}, {products}, {min}, {current}."
+msgstr "متنی که مشتری هنگام رعایت نشدن یک قانون می‌بیند. برای استفاده از متن پیش‌فرض (که به‌صورت کم‌رنگ نمایش داده شده) فیلد را خالی بگذارید. جای‌نگهدارها: {product}، {products}، {min}، {current}."
+
+#: includes/admin/class-crfw-settings.php:139
+msgid "Minimum quantity not met"
+msgstr "حداقل تعداد رعایت نشده"
+
+#: includes/admin/class-crfw-settings.php:147
+msgid "Minimum spend not met"
+msgstr "حداقل مبلغ خرید رعایت نشده"
+
+#: includes/admin/class-crfw-settings.php:155
+msgid "Minimum order amount not met"
+msgstr "حداقل مبلغ سفارش رعایت نشده"
+
+#: includes/admin/class-crfw-settings.php:163
+msgid "No shipping method shared by all items"
+msgstr "روش ارسال مشترکی بین اقلام نیست"
+
+#: includes/admin/class-crfw-settings.php:171
+msgid "Product page note"
+msgstr "یادداشت صفحهٔ محصول"
+
+#: includes/admin/class-crfw-settings.php:184
+msgid "Uninstall"
+msgstr "حذف افزونه"
+
+#: includes/admin/class-crfw-settings.php:189
+msgid "Remove data"
+msgstr "پاک کردن داده‌ها"
+
+#: includes/admin/class-crfw-settings.php:190
+msgid "Delete all settings and per-product rules when the plugin is deleted"
+msgstr "هنگام حذف افزونه، همهٔ تنظیمات و قوانین محصولات پاک شود"
+
+#: includes/class-crfw-cart.php:307
+msgid "%s item"
+msgid_plural "%s items"
+msgstr[0] "%s عدد"
+msgstr[1] "%s عدد"
+
+#: includes/class-crfw-plugin.php:74
+msgid "Settings"
+msgstr "تنظیمات"
+
+#: includes/class-crfw-plugin.php:89
+msgid "Docs"
+msgstr "مستندات"
+
+#: includes/class-crfw-plugin.php:90
+msgid "Support"
+msgstr "پشتیبانی"
+
+#: includes/class-crfw-plugin.php:91
+msgid "Buy me a coffee ☕"
+msgstr "یک قهوه مهمانم کن ☕"
+
+#: includes/class-crfw-plugin.php:105
+msgid "Telegram"
+msgstr "تلگرام"
+
+#: includes/class-crfw-plugin.php:110
+msgid "Enjoying it? %s"
+msgstr "راضی هستید؟ %s"
+
+#: includes/class-crfw-shipping.php:104
+msgid "Any “%s” method"
+msgstr "هر روش «%s»"
+
+#: includes/class-crfw-shipping.php:108
+msgid "By method type (every zone)"
+msgstr "بر اساس نوع روش (همهٔ مناطق)"
+
+#: includes/class-crfw-shipping.php:122
+msgid "%s (disabled)"
+msgstr "%s (غیرفعال)"
+
+#: includes/crfw-functions.php:57
+msgid "“{product}” must be ordered in a quantity of at least {min} (you have {current})."
+msgstr "«{product}» باید حداقل به تعداد {min} سفارش داده شود (تعداد فعلی شما: {current})."
+
+#: includes/crfw-functions.php:59
+msgid "“{product}” requires a minimum purchase of {min} (you have {current})."
+msgstr "حداقل مبلغ خرید «{product}» {min} است (مبلغ فعلی شما: {current})."
+
+#: includes/crfw-functions.php:61
+msgid "A minimum order of {min} is required to check out (your order is {current})."
+msgstr "برای ثبت سفارش، حداقل مبلغ خرید {min} است (مبلغ سفارش شما: {current})."
+
+#: includes/crfw-functions.php:63
+msgid "The items in your cart cannot be shipped together: no shipping method is available for all of them. Please order {products} separately."
+msgstr "اقلام سبد خرید شما با هم قابل ارسال نیستند: هیچ روش ارسالی برای همهٔ آن‌ها وجود ندارد. لطفاً {products} را جداگانه سفارش دهید."
+
+#: includes/crfw-functions.php:65
+msgid "Minimum order: {min}"
+msgstr "حداقل سفارش: {min}"

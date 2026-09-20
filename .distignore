@@ -1,0 +1,14 @@
+/.git
+/.github
+/.claude
+/dist
+/vendor
+/node_modules
+.gitignore
+.distignore
+.DS_Store
+build.sh
+composer.json
+composer.lock
+phpcs.xml.dist
+CHANGELOG.md
