@@ -45,6 +45,9 @@ final class CRFW_Plugin {
 			require_once CRFW_PATH . 'includes/admin/class-crfw-product-data.php';
 			CRFW_Product_Data::init();
 
+			require_once CRFW_PATH . 'includes/admin/class-crfw-help.php';
+			CRFW_Help::init();
+
 			add_filter( 'woocommerce_get_settings_pages', array( $this, 'settings_page' ) );
 			add_filter( 'plugin_action_links_' . plugin_basename( CRFW_FILE ), array( $this, 'action_links' ) );
 			add_filter( 'plugin_row_meta', array( $this, 'row_meta' ), 10, 2 );
@@ -70,8 +73,13 @@ final class CRFW_Plugin {
 	 * @return string[]
 	 */
 	public function action_links( $links ) {
+		require_once CRFW_PATH . 'includes/admin/class-crfw-help.php';
 		$url = admin_url( 'admin.php?page=wc-settings&tab=' . self::SETTINGS_TAB );
-		array_unshift( $links, '<a href="' . esc_url( $url ) . '">' . esc_html__( 'Settings', 'cart-rules-for-woocommerce' ) . '</a>' );
+		array_unshift(
+			$links,
+			'<a href="' . esc_url( $url ) . '">' . esc_html__( 'Settings', 'cart-rules-for-woocommerce' ) . '</a>',
+			'<a href="' . esc_url( CRFW_Help::url() ) . '">' . esc_html__( 'Guide', 'cart-rules-for-woocommerce' ) . '</a>'
+		);
 		return $links;
 	}
 

@@ -11,6 +11,13 @@ the classic and the block cart/checkout.
 
 ## What it does
 
+### Where to start: **WooCommerce → Cart Rules**
+
+A guide page the plugin adds to the WooCommerce menu. It names the exact location of every
+feature and links straight to it, shows a worked example of how several products in one cart are
+combined, and lists the four things that usually go wrong. It is read-only; the settings live
+where a WooCommerce user expects them (below).
+
 ### On each product (General & Shipping tabs)
 
 | Field | Tab | Meaning |
@@ -74,7 +81,7 @@ includes/class-crfw-rules.php    the engine: rules per product, cart evaluation,
 includes/class-crfw-cart.php     customer-facing enforcement (classic + Store API)
 includes/class-crfw-shipping.php woocommerce_package_rates filter, method choices
 includes/class-crfw-plugin.php   bootstrap, plugin links, credit line
-includes/admin/                  product edit fields, the WC settings tab
+includes/admin/                  product edit fields, the WC settings tab, the guide screen
 uninstall.php                    opt-in cleanup
 ```
 

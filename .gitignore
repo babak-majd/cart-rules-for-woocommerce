@@ -4,3 +4,6 @@
 .claude/
 .DS_Store
 ._*
+
+# scratch worktrees created by local tooling
+/.kilo/

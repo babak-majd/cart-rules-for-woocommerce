@@ -5,7 +5,7 @@ Tags: woocommerce, minimum order, minimum quantity, shipping methods, cart
 Requires at least: 6.0
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.0.0
+Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -49,11 +49,16 @@ Licensed GPL-2.0-or-later. Free to use. If it saves you time, buy me a coffee �
 
 Site: https://bobclub.ir · Telegram: https://t.me/bob_club · Source: https://github.com/babak-majd/cart-rules-for-woocommerce
 
+= Where everything is =
+
+After activation the plugin adds a **WooCommerce → Cart Rules** page: a short guide that names the exact location of every feature and links straight to it. Nothing to read beforehand.
+
 == Installation ==
 
 1. Upload the plugin zip via Plugins → Add New → Upload Plugin, then Activate. (WooCommerce 7.4 or newer must be active.)
-2. Open any product → **General** tab: set *Minimum quantity* and/or *Minimum spend*. **Shipping** tab: pick the *Allowed shipping methods*.
-3. Optionally set a store-wide minimum order amount and defaults under **WooCommerce → Settings → Cart Rules**.
+2. Open **WooCommerce → Cart Rules** — the guide page shows where every feature lives.
+3. Open any product → **General** tab: set *Minimum quantity* and/or *Minimum spend*. **Shipping** tab: pick the *Allowed shipping methods*.
+4. Optionally set a store-wide minimum order amount and defaults under **WooCommerce → Settings → Cart Rules**.
 
 == Frequently Asked Questions ==
 
@@ -83,17 +88,26 @@ Not unless you tick "Remove data" in the settings first. By default nothing is d
 
 == Screenshots ==
 
-1. Minimum quantity and minimum spend on the product's General tab.
-2. Allowed shipping methods on the product's Shipping tab, grouped by zone.
-3. The Cart Rules settings tab: minimum order, defaults, messages.
-4. A cart below the minimum, with the exact product named.
+1. The guide page under WooCommerce → Cart Rules.
+2. Minimum quantity and minimum spend on the product's General tab.
+3. Allowed shipping methods on the product's Shipping tab, grouped by zone.
+4. The Cart Rules settings tab: minimum order, defaults, messages.
+5. A cart below the minimum, with the exact product named.
 
 == Changelog ==
+
+= 1.1.0 =
+* New **WooCommerce → Cart Rules** guide page: a plain-language walkthrough that names the exact location of every feature, with links straight to the product list, the shipping zones and the settings tab, plus a worked example of how several products in one cart are combined and a short troubleshooting table. It writes nothing — the settings stay where WooCommerce users expect them.
+* "Guide" link added next to "Settings" on the Plugins screen, and a link to the guide from the settings tab.
+* Translations updated (Persian, Arabic, German).
 
 = 1.0.0 =
 * Initial release: per-product minimum quantity and minimum spend, store-wide minimum order amount, per-product allowed shipping methods (intersection across the cart), editable messages, classic + block cart/checkout, HPOS compatible, `[crfw_minimum]` shortcode, Persian/Arabic/German translations.
 
 == Upgrade Notice ==
+
+= 1.1.0 =
+Adds a guide page under WooCommerce → Cart Rules. No settings change.
 
 = 1.0.0 =
 First release.

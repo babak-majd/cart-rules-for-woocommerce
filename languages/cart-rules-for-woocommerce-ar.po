@@ -2,10 +2,10 @@
 # This file is distributed under the GPL-2.0-or-later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Cart Rules for WooCommerce 1.0.0\n"
+"Project-Id-Version: Cart Rules for WooCommerce 1.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/babak-majd/cart-rules-for-woocommerce/issues\n"
-"POT-Creation-Date: 2026-09-20 17:40+0000\n"
-"PO-Revision-Date: 2026-09-20 17:40+0000\n"
+"POT-Creation-Date: 2026-09-22 17:55+0000\n"
+"PO-Revision-Date: 2026-09-22 17:55+0000\n"
 "Last-Translator: Baabak Majd <baabak.majd@gmail.com>\n"
 "Language-Team: Arabic\n"
 "Language: ar\n"
@@ -23,9 +23,325 @@ msgstr "يحتاج %1$s إلى WooCommerce %2$s أو أحدث. يرجى تحدي
 msgid "%s needs WooCommerce to be installed and active."
 msgstr "يحتاج %s إلى تثبيت WooCommerce وتفعيله."
 
-#: includes/admin/class-crfw-product-data.php:44
+#: includes/admin/class-crfw-help.php:40
+msgid "Cart Rules"
+msgstr "قواعد السلة"
+
+#: includes/admin/class-crfw-help.php:77
+msgid "This plugin adds three rules to your shop: a minimum per product, a minimum for the whole order, and which shipping methods each product may use. This page shows where every one of them is."
+msgstr "تضيف هذه الإضافة ثلاث قواعد إلى متجرك: حد أدنى لكل منتج، وحد أدنى للطلب كاملًا، وتحديد طرق الشحن التي يجوز لكل منتج استخدامها. تعرض هذه الصفحة مكان كل واحدة منها."
+
+#: includes/admin/class-crfw-help.php:83
+msgid "In short"
+msgstr "باختصار"
+
+#: includes/admin/class-crfw-help.php:86
+msgid "A rule for one product"
+msgstr "قاعدة لمنتج واحد"
+
+#: includes/admin/class-crfw-help.php:91
+msgid "%1$sProducts%2$s → open a product → the <em>Product data</em> box → the <em>General</em> tab (minimums) and the <em>Shipping</em> tab (shipping methods)."
+msgstr "%1$sالمنتجات%2$s ← افتح منتجًا ← صندوق <em>بيانات المنتج</em> ← تبويب <em>عام</em> (الحدود الدنيا) وتبويب <em>الشحن</em> (طرق الشحن)."
+
+#: includes/admin/class-crfw-help.php:99
+msgid "A rule for the whole order"
+msgstr "قاعدة للطلب كاملًا"
+
+#: includes/admin/class-crfw-help.php:104
+msgid "%1$sWooCommerce → Settings → Cart Rules%2$s — the minimum order amount, the store-wide defaults and every message the customer reads."
+msgstr "%1$sWooCommerce ← الإعدادات ← قواعد السلة%2$s — الحد الأدنى لمبلغ الطلب، والافتراضيات على مستوى المتجر، وكل رسالة يقرؤها العميل."
+
+#: includes/admin/class-crfw-help.php:112
+msgid "Nothing else to set up"
+msgstr "لا شيء آخر لإعداده"
+
+#: includes/admin/class-crfw-help.php:113
+msgid "The rules apply immediately, on the cart and the checkout, classic or block-based."
+msgstr "تُطبَّق القواعد فورًا، في السلة وصفحة الدفع، سواء الكلاسيكية أو المبنية على البلوكات."
+
+#: includes/admin/class-crfw-help.php:117
+msgid "Open the settings"
+msgstr "فتح الإعدادات"
+
+#: includes/admin/class-crfw-help.php:118
+msgid "Open the products list"
+msgstr "فتح قائمة المنتجات"
+
+#: includes/admin/class-crfw-help.php:123
+msgid "1. Minimums for one product"
+msgstr "١. الحدود الدنيا لمنتج واحد"
+
+#: includes/admin/class-crfw-help.php:126
+msgid "Products → (open a product) → Product data → General tab, under the prices."
+msgstr "المنتجات ← (افتح منتجًا) ← بيانات المنتج ← تبويب عام، أسفل الأسعار."
+
+#: includes/admin/class-crfw-help.php:131
+msgid "Field"
+msgstr "الحقل"
+
+#: includes/admin/class-crfw-help.php:132
+msgid "What it does"
+msgstr "ماذا يفعل"
+
+#: includes/admin/class-crfw-help.php:137
 msgid "Minimum quantity"
 msgstr "الحد الأدنى للكمية"
+
+#: includes/admin/class-crfw-help.php:139
+msgid "The customer must order at least this many of this product. Example: 5 means the cart is refused with 4, and accepted from 5 upwards."
+msgstr "يجب أن يطلب العميل هذا العدد على الأقل من هذا المنتج. مثال: ٥ تعني رفض السلة عند ٤، وقبولها من ٥ فأكثر."
+
+#: includes/admin/class-crfw-help.php:140
+msgid "On a variable product the variations are counted together: with a minimum of 5, three of one size plus two of another is fine."
+msgstr "في المنتج المتغيّر تُحتسب المتغيرات معًا: مع حد أدنى ٥، ثلاث قطع من مقاس واثنتان من مقاس آخر مقبولة."
+
+#: includes/admin/class-crfw-help.php:144
+msgid "Minimum spend"
+msgstr "الحد الأدنى للإنفاق"
+
+#: includes/admin/class-crfw-help.php:145
+msgid "The customer must spend at least this much on this product — quantity × price, this product alone. Use it when the price varies but the order value is what matters."
+msgstr "يجب أن ينفق العميل هذا المبلغ على الأقل على هذا المنتج — الكمية × السعر، لهذا المنتج وحده. استخدمه عندما يتغيّر السعر ويكون المهم هو قيمة الطلب."
+
+#: includes/admin/class-crfw-help.php:148
+msgid "No minimums"
+msgstr "بدون حدود دنيا"
+
+#: includes/admin/class-crfw-help.php:149
+msgid "Exempts this product from everything above, including the store-wide defaults. Use it for a sample, a spare part or a gift card."
+msgstr "يُعفي هذا المنتج من كل ما سبق، بما في ذلك افتراضيات المتجر. استخدمه لعيّنة أو قطعة غيار أو بطاقة هدية."
+
+#: includes/admin/class-crfw-help.php:154
+msgid "Leave a field empty and the product follows the store default (set under Settings → Cart Rules). Set a value and it wins over the default."
+msgstr "اترك الحقل فارغًا فيتبع المنتج افتراضي المتجر (من الإعدادات ← قواعد السلة). وإذا وضعت قيمة فهي تتقدّم على الافتراضي."
+
+#: includes/admin/class-crfw-help.php:159
+msgid "2. Allowed shipping methods for one product"
+msgstr "٢. طرق الشحن المسموح بها لمنتج واحد"
+
+#: includes/admin/class-crfw-help.php:162
+msgid "Products → (open a product) → Product data → Shipping tab, under the shipping class."
+msgstr "المنتجات ← (افتح منتجًا) ← بيانات المنتج ← تبويب الشحن، أسفل فئة الشحن."
+
+#: includes/admin/class-crfw-help.php:164
+msgid "Pick the shipping methods this product may be sent with. Leave the field empty and every method is allowed — that is the default for every product."
+msgstr "اختر طرق الشحن التي يجوز إرسال هذا المنتج بها. اترك الحقل فارغًا فتُسمح كل الطرق — وهذا هو الوضع الافتراضي لكل منتج."
+
+#: includes/admin/class-crfw-help.php:165
+msgid "The list is read from your own shipping settings and is grouped in two ways:"
+msgstr "تُقرأ القائمة من إعدادات الشحن الخاصة بك وهي مجمّعة بطريقتين:"
+
+#: includes/admin/class-crfw-help.php:168
+msgid "By method type (every zone)"
+msgstr "حسب نوع الطريقة (كل المناطق)"
+
+#: includes/admin/class-crfw-help.php:169
+msgid "for example “Any Flat rate method”: every flat rate you have, in every zone, now and in the future. Best when the same kind of delivery exists in several zones."
+msgstr "مثلًا «أي طريقة سعر ثابت»: كل سعر ثابت لديك، في كل منطقة، الآن ومستقبلًا. الأفضل عندما يوجد النوع نفسه من التوصيل في عدة مناطق."
+
+#: includes/admin/class-crfw-help.php:172
+msgid "By zone"
+msgstr "حسب المنطقة"
+
+#: includes/admin/class-crfw-help.php:173
+msgid "one exact method you configured in one zone, under its own name. Best when only that one delivery service can carry the product."
+msgstr "طريقة واحدة بعينها أعددتها في منطقة واحدة، باسمها الخاص. الأفضل عندما تستطيع خدمة توصيل واحدة فقط حمل المنتج."
+
+#: includes/admin/class-crfw-help.php:181
+msgid "The methods themselves are created in %1$sWooCommerce → Settings → Shipping%2$s. Anything you add there appears here automatically, including methods added by other plugins."
+msgstr "تُنشأ الطرق نفسها في %1$sWooCommerce ← الإعدادات ← الشحن%2$s. وكل ما تضيفه هناك يظهر هنا تلقائيًا، بما في ذلك الطرق التي تضيفها إضافات أخرى."
+
+#: includes/admin/class-crfw-help.php:191
+msgid "3. How several products in one cart are handled"
+msgstr "٣. كيف تُعالَج عدة منتجات في سلة واحدة"
+
+#: includes/admin/class-crfw-help.php:192
+msgid "Minimums: every product must clear its own bar."
+msgstr "الحدود الدنيا: كل منتج يجب أن يستوفي حدّه بنفسه."
+
+#: includes/admin/class-crfw-help.php:193
+msgid "One product reaching its minimum does not help another. If any product in the cart is below its own minimum, checkout is blocked and the message names that product and the figure it is missing."
+msgstr "بلوغ منتج لحدّه لا يساعد منتجًا آخر. فإذا كان أي منتج في السلة دون حدّه الأدنى، يُمنع إتمام الشراء وتذكر الرسالة اسم ذلك المنتج والمقدار الناقص."
+
+#: includes/admin/class-crfw-help.php:195
+msgid "Shipping: only the methods they all allow are offered."
+msgstr "الشحن: تُعرض فقط الطرق التي تسمح بها كل المنتجات."
+
+#: includes/admin/class-crfw-help.php:196
+msgid "A product with no restriction accepts anything, so it never narrows the list."
+msgstr "المنتج بلا قيود يقبل كل شيء، فهو لا يضيّق القائمة أبدًا."
+
+#: includes/admin/class-crfw-help.php:199
+msgid "Example"
+msgstr "مثال"
+
+#: includes/admin/class-crfw-help.php:201
+msgid "Product A allows: Post, Courier"
+msgstr "المنتج أ يسمح بـ: البريد، مندوب التوصيل"
+
+#: includes/admin/class-crfw-help.php:202
+msgid "Product B allows: Courier, Freight"
+msgstr "المنتج ب يسمح بـ: مندوب التوصيل، الشحن البري"
+
+#: includes/admin/class-crfw-help.php:203
+msgid "Product C has no restriction"
+msgstr "المنتج ج بلا قيود"
+
+#: includes/admin/class-crfw-help.php:205
+msgid "A + B + C in one cart → only Courier is offered. If B allowed Freight alone, nothing would be shared: no shipping method is shown and the customer is told which products cannot travel together, so they can order them separately."
+msgstr "أ + ب + ج في سلة واحدة ← يُعرض مندوب التوصيل فقط. ولو كان ب يسمح بالشحن البري وحده لما بقي شيء مشترك: لا تُعرض أي طريقة شحن، ويُخبَر العميل بالمنتجات التي لا يمكن شحنها معًا ليطلبها بشكل منفصل."
+
+#: includes/admin/class-crfw-help.php:210
+msgid "4. Rules for the whole order"
+msgstr "٤. قواعد الطلب كاملًا"
+
+#: includes/admin/class-crfw-help.php:217
+msgid "%1$sWooCommerce → Settings → Cart Rules%2$s"
+msgstr "%1$sWooCommerce ← الإعدادات ← قواعد السلة%2$s"
+
+#: includes/admin/class-crfw-help.php:227
+msgid "Section"
+msgstr "القسم"
+
+#: includes/admin/class-crfw-help.php:228
+msgid "What you set there"
+msgstr "ما الذي تضبطه هناك"
+
+#: includes/admin/class-crfw-help.php:233
+msgid "Whole cart"
+msgstr "السلة بأكملها"
+
+#: includes/admin/class-crfw-help.php:234
+msgid "The minimum order amount — below it nobody can check out — and whether it is compared against the subtotal or the total after coupons. Shipping costs are never counted."
+msgstr "الحد الأدنى لمبلغ الطلب — لا يمكن لأحد إتمام الشراء دونه — وهل يُقارن بالمجموع الفرعي أم بالإجمالي بعد القسائم. لا تُحتسب تكاليف الشحن أبدًا."
+
+#: includes/admin/class-crfw-help.php:237
+msgid "Per-product defaults"
+msgstr "الافتراضيات لكل منتج"
+
+#: includes/admin/class-crfw-help.php:238
+msgid "A minimum quantity and a minimum spend for every product that has no value of its own — so you set a rule once instead of on a thousand products. Also: whether quantity fields start at the minimum, and whether the product page shows a note."
+msgstr "حد أدنى للكمية وحد أدنى للإنفاق لكل منتج ليس له قيمة خاصة — فتضبط القاعدة مرة واحدة بدل ألف منتج. وأيضًا: هل تبدأ حقول الكمية من الحد الأدنى، وهل تعرض صفحة المنتج ملاحظة."
+
+#: includes/admin/class-crfw-help.php:241
+msgid "Messages"
+msgstr "الرسائل"
+
+#: includes/admin/class-crfw-help.php:242
+msgid "The exact wording the customer reads for each rule. Leave a field empty to keep the default text shown in grey inside it."
+msgstr "الصياغة الدقيقة التي يقرؤها العميل لكل قاعدة. اترك الحقل فارغًا للإبقاء على النص الافتراضي الظاهر بالرمادي داخله."
+
+#: includes/admin/class-crfw-help.php:245
+msgid "Uninstall"
+msgstr "إلغاء التثبيت"
+
+#: includes/admin/class-crfw-help.php:246
+msgid "Whether deleting the plugin also deletes your rules. Off by default, so nothing is lost by accident."
+msgstr "هل يؤدي حذف الإضافة إلى حذف قواعدك أيضًا. معطّل افتراضيًا حتى لا يضيع شيء بالخطأ."
+
+#: includes/admin/class-crfw-help.php:253
+msgid "5. Wording the messages"
+msgstr "٥. صياغة الرسائل"
+
+#: includes/admin/class-crfw-help.php:256
+msgid "Settings → Cart Rules → Messages"
+msgstr "الإعدادات ← قواعد السلة ← الرسائل"
+
+#: includes/admin/class-crfw-help.php:258
+msgid "Write your own text and drop these placeholders in it — they are replaced with the real values:"
+msgstr "اكتب نصك الخاص وضع فيه هذه العناصر النائبة — تُستبدل بالقيم الحقيقية:"
+
+#: includes/admin/class-crfw-help.php:263
+msgid "The name of the product that is below its minimum."
+msgstr "اسم المنتج الذي هو دون حدّه الأدنى."
+
+#: includes/admin/class-crfw-help.php:267
+msgid "The required minimum (a quantity or an amount, whichever the rule is about)."
+msgstr "الحد الأدنى المطلوب (كمية أو مبلغ، بحسب القاعدة)."
+
+#: includes/admin/class-crfw-help.php:271
+msgid "What the customer currently has."
+msgstr "ما لدى العميل حاليًا."
+
+#: includes/admin/class-crfw-help.php:275
+msgid "The list of products that cannot be shipped together (shipping message only)."
+msgstr "قائمة المنتجات التي لا يمكن شحنها معًا (في رسالة الشحن فقط)."
+
+#: includes/admin/class-crfw-help.php:282
+msgid "6. What the customer sees"
+msgstr "٦. ماذا يرى العميل"
+
+#: includes/admin/class-crfw-help.php:284
+msgid "On the product page:"
+msgstr "في صفحة المنتج:"
+
+#: includes/admin/class-crfw-help.php:284
+msgid "the quantity field starts at the minimum, and a short note under the price says what the minimum is."
+msgstr "يبدأ حقل الكمية من الحد الأدنى، وتذكر ملاحظة قصيرة أسفل السعر مقدار هذا الحد."
+
+#: includes/admin/class-crfw-help.php:285
+msgid "When adding to the cart:"
+msgstr "عند الإضافة إلى السلة:"
+
+#: includes/admin/class-crfw-help.php:285
+msgid "a quantity below the minimum is refused right away, with the reason."
+msgstr "تُرفض الكمية الأقل من الحد الأدنى فورًا مع ذكر السبب."
+
+#: includes/admin/class-crfw-help.php:286
+msgid "In the cart and at checkout:"
+msgstr "في السلة وصفحة الدفع:"
+
+#: includes/admin/class-crfw-help.php:286
+msgid "any unmet rule is shown as an error and the order cannot be placed until it is fixed."
+msgstr "تظهر أي قاعدة غير مستوفاة كخطأ، ولا يمكن إتمام الطلب حتى تُعالَج."
+
+#: includes/admin/class-crfw-help.php:287
+msgid "In the shipping choices:"
+msgstr "في خيارات الشحن:"
+
+#: includes/admin/class-crfw-help.php:287
+msgid "only the methods allowed for everything in the cart are listed."
+msgstr "تُعرض فقط الطرق المسموح بها لكل ما في السلة."
+
+#: includes/admin/class-crfw-help.php:294
+msgid "Building your product page with Elementor, Divi or another builder? Those templates skip WooCommerce's own hooks, so the note under the price may not appear. Place it yourself with the %s shortcode — it accepts id, class, before and after."
+msgstr "هل تبني صفحة منتجك بـ Elementor أو Divi أو أي أداة بناء أخرى؟ تلك القوالب تتخطى خطافات WooCommerce نفسها، لذا قد لا تظهر الملاحظة أسفل السعر. ضعها بنفسك عبر الكود المختصر %s — وهو يقبل id وclass وbefore وafter."
+
+#: includes/admin/class-crfw-help.php:303
+msgid "If something does not work"
+msgstr "إذا لم يعمل شيء ما"
+
+#: includes/admin/class-crfw-help.php:307
+msgid "A rule has no effect"
+msgstr "القاعدة بلا أثر"
+
+#: includes/admin/class-crfw-help.php:308
+msgid "Check you set it on the product itself and saved (Update). On a variable product the rule belongs on the parent, not on a single variation."
+msgstr "تأكد من ضبطها على المنتج نفسه وحفظه (تحديث). في المنتج المتغيّر تكون القاعدة على المنتج الأصل، لا على متغيّر واحد."
+
+#: includes/admin/class-crfw-help.php:311
+msgid "A shipping method still shows up"
+msgstr "ما زالت طريقة شحن تظهر"
+
+#: includes/admin/class-crfw-help.php:312
+msgid "Shipping choices are cached per visitor. Empty the cart, or change the delivery address once, to see the new list. A caching plugin may need its cache cleared too."
+msgstr "تُخزَّن خيارات الشحن مؤقتًا لكل زائر. أفرغ السلة، أو غيّر عنوان التسليم مرة، لرؤية القائمة الجديدة. وقد تحتاج إلى مسح ذاكرة إضافة التخزين المؤقت أيضًا."
+
+#: includes/admin/class-crfw-help.php:315
+msgid "Another minimum-order message appears"
+msgstr "تظهر رسالة حد أدنى للطلب من مصدر آخر"
+
+#: includes/admin/class-crfw-help.php:316
+msgid "Another plugin or a snippet in your theme is enforcing its own minimum. Turn that one off, or leave the minimum order amount here empty, so your customers are told one thing only."
+msgstr "إضافة أخرى أو مقتطف كود في قالبك يفرض حدًّا أدنى خاصًا به. عطّل ذلك، أو اترك الحد الأدنى لمبلغ الطلب هنا فارغًا، ليصل عملاءك كلام واحد فقط."
+
+#: includes/admin/class-crfw-help.php:319
+msgid "The quantity field does not start at the minimum"
+msgstr "لا يبدأ حقل الكمية من الحد الأدنى"
+
+#: includes/admin/class-crfw-help.php:320
+msgid "That behaviour has a switch: Settings → Cart Rules → Per-product defaults → Quantity fields."
+msgstr "لهذا السلوك مفتاح: الإعدادات ← قواعد السلة ← الافتراضيات لكل منتج ← حقول الكمية."
 
 #: includes/admin/class-crfw-product-data.php:47
 msgid "Store default: %s"
@@ -47,10 +363,6 @@ msgstr "الحد الأدنى للإنفاق (%s)"
 msgid "The smallest amount a customer must spend on this product (quantity × price). Leave empty to use the store default."
 msgstr "أقل مبلغ يجب أن ينفقه العميل على هذا المنتج (الكمية × السعر). اتركه فارغًا لاستخدام الافتراضي للمتجر."
 
-#: includes/admin/class-crfw-product-data.php:79
-msgid "No minimums"
-msgstr "بدون حدود دنيا"
-
 #: includes/admin/class-crfw-product-data.php:80
 msgid "Exempt this product from every minimum, including the store defaults."
 msgstr "إعفاء هذا المنتج من كل الحدود الدنيا، بما فيها الافتراضيات للمتجر."
@@ -71,119 +383,103 @@ msgstr "تُعرض هذه الطرق فقط عندما يكون هذا المن�
 msgid "No shipping methods are configured yet. Add some under WooCommerce → Settings → Shipping."
 msgstr "لم يتم إعداد أي طرق شحن بعد. أضف بعضها من WooCommerce ← الإعدادات ← الشحن."
 
-#: includes/admin/class-crfw-settings.php:23
-msgid "Cart Rules"
-msgstr "قواعد السلة"
-
-#: includes/admin/class-crfw-settings.php:39
-msgid "Whole cart"
-msgstr "السلة بأكملها"
-
-#: includes/admin/class-crfw-settings.php:41
+#: includes/admin/class-crfw-settings.php:42
 msgid "Rules that apply to the order as a whole. Per-product minimums and allowed shipping methods are set on each product's edit screen (General and Shipping tabs)."
 msgstr "قواعد تنطبق على الطلب ككل. تُضبط الحدود الدنيا لكل منتج وطرق الشحن المسموح بها في شاشة تحرير كل منتج (تبويبا «عام» و«الشحن»)."
 
-#: includes/admin/class-crfw-settings.php:47
+#: includes/admin/class-crfw-settings.php:43
+msgid "Read the guide"
+msgstr "اقرأ الدليل"
+
+#: includes/admin/class-crfw-settings.php:49
 msgid "Minimum order amount (%s)"
 msgstr "الحد الأدنى لمبلغ الطلب (%s)"
 
-#: includes/admin/class-crfw-settings.php:50
+#: includes/admin/class-crfw-settings.php:52
 msgid "Customers cannot check out below this amount. Leave empty for no minimum."
 msgstr "لا يمكن للعملاء إتمام الشراء بأقل من هذا المبلغ. اتركه فارغًا لعدم وجود حد أدنى."
 
-#: includes/admin/class-crfw-settings.php:60
+#: includes/admin/class-crfw-settings.php:62
 msgid "Compare against"
 msgstr "المقارنة مع"
 
-#: includes/admin/class-crfw-settings.php:61
+#: includes/admin/class-crfw-settings.php:63
 msgid "Which cart figure the minimum order amount is checked against. Shipping is never included; tax follows the “Display prices during cart and checkout” setting."
 msgstr "أي رقم في السلة يُقارن به الحد الأدنى لمبلغ الطلب. لا يُحتسب الشحن أبدًا؛ وتتبع الضريبة إعداد «عرض الأسعار في السلة وصفحة الدفع»."
 
-#: includes/admin/class-crfw-settings.php:69
+#: includes/admin/class-crfw-settings.php:71
 msgid "Subtotal (before coupons)"
 msgstr "المجموع الفرعي (قبل القسائم)"
 
-#: includes/admin/class-crfw-settings.php:70
+#: includes/admin/class-crfw-settings.php:72
 msgid "Total after coupons"
 msgstr "الإجمالي بعد القسائم"
 
-#: includes/admin/class-crfw-settings.php:79
-msgid "Per-product defaults"
-msgstr "الافتراضيات لكل منتج"
-
-#: includes/admin/class-crfw-settings.php:81
+#: includes/admin/class-crfw-settings.php:83
 msgid "Applied to every product that has no value of its own. A product can override these, or opt out with “No minimums”."
 msgstr "تُطبَّق على كل منتج ليس له قيمة خاصة. يمكن للمنتج تجاوزها أو الإعفاء منها عبر «بدون حدود دنيا»."
 
-#: includes/admin/class-crfw-settings.php:85
+#: includes/admin/class-crfw-settings.php:87
 msgid "Default minimum quantity"
 msgstr "الحد الأدنى الافتراضي للكمية"
 
-#: includes/admin/class-crfw-settings.php:86
+#: includes/admin/class-crfw-settings.php:88
 msgid "The smallest quantity of any one product a customer may order."
 msgstr "أقل كمية من أي منتج يمكن للعميل طلبها."
 
-#: includes/admin/class-crfw-settings.php:101
+#: includes/admin/class-crfw-settings.php:103
 msgid "Default minimum spend (%s)"
 msgstr "الحد الأدنى الافتراضي للإنفاق (%s)"
 
-#: includes/admin/class-crfw-settings.php:104
+#: includes/admin/class-crfw-settings.php:106
 msgid "The smallest amount a customer must spend on any one product."
 msgstr "أقل مبلغ يجب أن ينفقه العميل على أي منتج."
 
-#: includes/admin/class-crfw-settings.php:114
+#: includes/admin/class-crfw-settings.php:116
 msgid "Quantity fields"
 msgstr "حقول الكمية"
 
-#: includes/admin/class-crfw-settings.php:115
+#: includes/admin/class-crfw-settings.php:117
 msgid "Start quantity fields and “Add to cart” buttons at the product's minimum quantity"
 msgstr "بدء حقول الكمية وأزرار «إضافة إلى السلة» من الحد الأدنى لكمية المنتج"
 
-#: includes/admin/class-crfw-settings.php:121
+#: includes/admin/class-crfw-settings.php:123
 msgid "Product page"
 msgstr "صفحة المنتج"
 
-#: includes/admin/class-crfw-settings.php:122
+#: includes/admin/class-crfw-settings.php:124
 msgid "Show the product's minimum under its price"
 msgstr "عرض الحد الأدنى للمنتج أسفل سعره"
 
-#: includes/admin/class-crfw-settings.php:133
-msgid "Messages"
-msgstr "الرسائل"
-
-#: includes/admin/class-crfw-settings.php:135
+#: includes/admin/class-crfw-settings.php:137
 msgid "What customers read when a rule is not met. Leave a field empty to use the default shown as its placeholder. Placeholders: {product}, {products}, {min}, {current}."
 msgstr "ما يقرؤه العملاء عند عدم استيفاء قاعدة. اترك الحقل فارغًا لاستخدام النص الافتراضي المعروض كنص بديل. العناصر النائبة: {product}، {products}، {min}، {current}."
 
-#: includes/admin/class-crfw-settings.php:139
+#: includes/admin/class-crfw-settings.php:141
 msgid "Minimum quantity not met"
 msgstr "لم يُستوفَ الحد الأدنى للكمية"
 
-#: includes/admin/class-crfw-settings.php:147
+#: includes/admin/class-crfw-settings.php:149
 msgid "Minimum spend not met"
 msgstr "لم يُستوفَ الحد الأدنى للإنفاق"
 
-#: includes/admin/class-crfw-settings.php:155
+#: includes/admin/class-crfw-settings.php:157
 msgid "Minimum order amount not met"
 msgstr "لم يُستوفَ الحد الأدنى لمبلغ الطلب"
 
-#: includes/admin/class-crfw-settings.php:163
+#: includes/admin/class-crfw-settings.php:165
 msgid "No shipping method shared by all items"
 msgstr "لا توجد طريقة شحن مشتركة بين كل العناصر"
 
-#: includes/admin/class-crfw-settings.php:171
+#: includes/admin/class-crfw-settings.php:173
 msgid "Product page note"
 msgstr "ملاحظة صفحة المنتج"
 
-#: includes/admin/class-crfw-settings.php:184
-msgid "Uninstall"
-msgstr "إلغاء التثبيت"
-
-#: includes/admin/class-crfw-settings.php:189
+#: includes/admin/class-crfw-settings.php:191
 msgid "Remove data"
 msgstr "إزالة البيانات"
 
-#: includes/admin/class-crfw-settings.php:190
+#: includes/admin/class-crfw-settings.php:192
 msgid "Delete all settings and per-product rules when the plugin is deleted"
 msgstr "حذف كل الإعدادات وقواعد المنتجات عند حذف الإضافة"
 
@@ -197,37 +493,37 @@ msgstr[3] "%s عناصر"
 msgstr[4] "%s عنصرًا"
 msgstr[5] "%s عنصر"
 
-#: includes/class-crfw-plugin.php:74
+#: includes/class-crfw-plugin.php:80
 msgid "Settings"
 msgstr "الإعدادات"
 
-#: includes/class-crfw-plugin.php:89
+#: includes/class-crfw-plugin.php:81
+msgid "Guide"
+msgstr "الدليل"
+
+#: includes/class-crfw-plugin.php:97
 msgid "Docs"
 msgstr "التوثيق"
 
-#: includes/class-crfw-plugin.php:90
+#: includes/class-crfw-plugin.php:98
 msgid "Support"
 msgstr "الدعم"
 
-#: includes/class-crfw-plugin.php:91
+#: includes/class-crfw-plugin.php:99
 msgid "Buy me a coffee ☕"
 msgstr "اشترِ لي قهوة ☕"
 
-#: includes/class-crfw-plugin.php:105
+#: includes/class-crfw-plugin.php:113
 msgid "Telegram"
 msgstr "تيليجرام"
 
-#: includes/class-crfw-plugin.php:110
+#: includes/class-crfw-plugin.php:118
 msgid "Enjoying it? %s"
 msgstr "أعجبتك؟ %s"
 
 #: includes/class-crfw-shipping.php:104
 msgid "Any “%s” method"
 msgstr "أي طريقة «%s»"
-
-#: includes/class-crfw-shipping.php:108
-msgid "By method type (every zone)"
-msgstr "حسب نوع الطريقة (كل المناطق)"
 
 #: includes/class-crfw-shipping.php:122
 msgid "%s (disabled)"

@@ -32,13 +32,15 @@ class CRFW_Settings extends WC_Settings_Page {
 	 * @return array
 	 */
 	protected function get_settings_for_default_section() {
+		require_once CRFW_PATH . 'includes/admin/class-crfw-help.php';
 		$symbol = get_woocommerce_currency_symbol();
 
 		$settings = array(
 			array(
 				'title' => __( 'Whole cart', 'cart-rules-for-woocommerce' ),
 				'type'  => 'title',
-				'desc'  => __( 'Rules that apply to the order as a whole. Per-product minimums and allowed shipping methods are set on each product\'s edit screen (General and Shipping tabs).', 'cart-rules-for-woocommerce' ),
+				'desc'  => __( 'Rules that apply to the order as a whole. Per-product minimums and allowed shipping methods are set on each product\'s edit screen (General and Shipping tabs).', 'cart-rules-for-woocommerce' )
+					. ' <a href="' . esc_url( admin_url( 'admin.php?page=' . CRFW_Help::PAGE ) ) . '">' . esc_html__( 'Read the guide', 'cart-rules-for-woocommerce' ) . '</a>',
 				'id'    => 'crfw_cart_section',
 			),
 			array(
