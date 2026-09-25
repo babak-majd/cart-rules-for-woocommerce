@@ -3,6 +3,16 @@
 All notable changes to this project are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versions follow [SemVer](https://semver.org/).
 
+## [1.3.1] — 2026-09-25
+
+### Fixed
+- The dialog opened on clicks inside a quantity widget. Where the quantity box sits in an element
+  that carries the product's id, `+`, `−` and the field itself were caught as if they were the
+  button, so the customer could not change the number. Interception is now limited to an actual
+  add-to-cart control (`button`/`input` naming the product, WooCommerce's own classes, a `form.cart`
+  submit, or a link whose href or class says it adds to the cart), and anything inside a quantity
+  widget is ignored outright.
+
 ## [1.3.0] — 2026-09-25
 
 ### Added

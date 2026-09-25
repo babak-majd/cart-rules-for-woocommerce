@@ -5,7 +5,7 @@ Tags: woocommerce, minimum order, minimum quantity, shipping methods, cart
 Requires at least: 6.0
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.3.0
+Stable tag: 1.3.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -103,6 +103,9 @@ Not unless you tick "Remove data" in the settings first. By default nothing is d
 
 == Changelog ==
 
+= 1.3.1 =
+* Fix: the dialog could be triggered by a quantity widget rather than the button. A shop whose quantity box sits inside an element carrying the product's id — a common pattern — had its **+**, **−** and the box itself intercepted, so stepping the quantity opened the question instead of changing the number. Only a real add-to-cart control is watched now: a button, a submit, or a link that says it adds to the cart. Quantity fields and their steppers are left alone.
+
 = 1.3.0 =
 * **Ask before refusing.** Adding less than a product's minimum now opens a small dialog offering to make up the difference ("minimum is 5 — add 5?"). Agreeing adds exactly enough to clear the rule; declining adds nothing at all. Once the minimum is met, further additions are silent.
 * The dialog also covers the **minimum spend**: it works out how many items reach the amount and asks for that.
@@ -126,6 +129,9 @@ Not unless you tick "Remove data" in the settings first. By default nothing is d
 * Initial release: per-product minimum quantity and minimum spend, store-wide minimum order amount, per-product allowed shipping methods (intersection across the cart), editable messages, classic + block cart/checkout, HPOS compatible, `[crfw_minimum]` shortcode, Persian/Arabic/German translations.
 
 == Upgrade Notice ==
+
+= 1.3.1 =
+Fixes the dialog opening when the quantity steppers were used. Recommended for anyone on 1.3.0.
 
 = 1.3.0 =
 Customers are now asked before being refused for a minimum. Switch it off under WooCommerce → Settings → Cart Rules.

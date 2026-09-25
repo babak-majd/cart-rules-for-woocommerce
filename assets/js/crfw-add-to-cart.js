@@ -48,26 +48,66 @@
 	/* ------------------------------------------------- reading the intention */
 
 	/**
+	 * A quantity widget: its input, its + and - steppers, its wrapper.
+	 *
+	 * These are the customer's to use freely. They often sit inside an element
+	 * that names the product, which is exactly what makes them easy to mistake
+	 * for the button — so they are ruled out before anything else is considered.
+	 */
+	function isQuantityControl( node ) {
+		if ( ! node || ! node.closest ) {
+			return false;
+		}
+		if ( node.matches && node.matches( 'input, select, textarea, label' ) ) {
+			return true;
+		}
+		return !! node.closest( '.quantity, .qty, .nima-qty, [class*="qty-"], [class*="-qty"], [class*="quantity"]' );
+	}
+
+	/**
 	 * The element that carries an "add to cart" intention, if this click has one.
+	 *
+	 * Only a real control counts — a button, a submit, or a link that says it adds
+	 * to the cart. A container that merely carries the product's id is not one.
 	 */
 	function controlFor( target ) {
-		var selector = [
-			'[data-product_id]',
-			'[data-product-id]',
-			'a[href*="add-to-cart="]',
-			'button[name="add-to-cart"]',
-			'input[name="add-to-cart"]',
-			'.add_to_cart_button',
-			'.single_add_to_cart_button',
-			'.ajax_add_to_cart'
-		].join( ',' );
-		var el = target.closest ? target.closest( selector ) : null;
-		if ( el ) {
-			return el;
+		if ( isQuantityControl( target ) ) {
+			return null;
 		}
-		// A submit inside WooCommerce's own cart form.
-		var form = target.closest ? target.closest( 'form.cart' ) : null;
-		return form ? form.querySelector( '[type="submit"]' ) || form : null;
+
+		var known = target.closest(
+			[
+				'.add_to_cart_button',
+				'.ajax_add_to_cart',
+				'.single_add_to_cart_button',
+				'button[name="add-to-cart"]',
+				'input[name="add-to-cart"]',
+				'a[href*="add-to-cart="]'
+			].join( ',' )
+		);
+		if ( known ) {
+			return isQuantityControl( known ) ? null : known;
+		}
+
+		// A theme's own control: a button or submit that names the product.
+		var byData = target.closest( 'button[data-product_id], button[data-product-id], input[data-product_id], input[data-product-id]' );
+		if ( byData && ! isQuantityControl( byData ) ) {
+			return byData;
+		}
+
+		// A link that names the product counts only when it says it adds to the cart —
+		// otherwise it is just a link to the product.
+		var link = target.closest( 'a[data-product_id], a[data-product-id]' );
+		if ( link && ! isQuantityControl( link ) && /add[-_ ]?to[-_ ]?cart|\batc\b|cart/i.test( link.className + ' ' + ( link.getAttribute( 'data-action' ) || '' ) ) ) {
+			return link;
+		}
+
+		// WooCommerce's own form: its submit button.
+		var form = target.closest( 'form.cart' );
+		if ( form && target.closest( '[type="submit"], button' ) && ! isQuantityControl( target ) ) {
+			return target.closest( '[type="submit"], button' );
+		}
+		return null;
 	}
 
 	/**

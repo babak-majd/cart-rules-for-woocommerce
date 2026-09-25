@@ -54,7 +54,8 @@ where a WooCommerce user expects them (below).
    nothing at all. Once the minimum is met, later clicks pass without a word.
 2. It is not bound to any markup. The click is caught on `document` in the **capture phase**, before
    handlers bound on the element or delegated through jQuery, so WooCommerce's own buttons and forms,
-   a page builder's `?add-to-cart=` link and a shop's hand-written JavaScript all work. The product is
+   a page builder's `?add-to-cart=` link and a shop's hand-written JavaScript all work. Only a real
+   add-to-cart control is watched — quantity fields and their `+`/`−` steppers are never touched. The product is
    read from `data-product_id` / `data-product-id`, the link, or a `form.cart`; the agreed quantity is
    written into **every** quantity field for that product (a second, mobile copy included) and the
    page's own values are restored ~1.5s later.
