@@ -57,8 +57,10 @@ where a WooCommerce user expects them (below).
 ### Works on any WooCommerce site
 
 - Shipping choices are read live from WooCommerce: every registered method type (core or
-  third-party) and every zone instance. Matching uses both the rate id and the method id, so
-  methods that do not use zones still work through "Any *method*".
+  third-party) and every **enabled** zone instance — a method switched off in WooCommerce is not
+  offered, unless the product already uses it (then it stays, marked "(disabled)"). Matching uses
+  both the rate id and the method id, so methods that do not use zones still work through
+  "Any *method*".
 - Classic (shortcode) and block cart/checkout, HPOS declared compatible.
 - Fully translatable (text domain `cart-rules-for-woocommerce`); ships with Persian, Arabic and
   German, and wordpress.org language packs apply automatically. RTL needs nothing extra — the
@@ -96,7 +98,8 @@ uninstall.php                    opt-in cleanup
 | `crfw_cart_violations( $violations, $cart )` | Add, remove or reword violations. |
 | `crfw_allowed_shipping( $allowed, $items )` | The allow-list for a set of items (`null` = unrestricted, `[]` = conflict). |
 | `crfw_package_rates( $kept, $rates, $allowed, $package )` | The rates left after filtering. |
-| `crfw_shipping_method_choices( $groups )` | The choices offered on the product edit screen. |
+| `crfw_shipping_method_choices( $groups, $selected )` | The choices offered on the product edit screen. |
+| `crfw_show_disabled_shipping_methods( $bool, $selected )` | Offer methods disabled in WooCommerce too (default `false`). |
 | `crfw_message_template( $message, $key, $replacements )` | The message template before placeholders. |
 | `crfw_settings( $settings )` | The settings-tab fields. |
 

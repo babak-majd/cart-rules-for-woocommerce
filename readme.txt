@@ -5,7 +5,7 @@ Tags: woocommerce, minimum order, minimum quantity, shipping methods, cart
 Requires at least: 6.0
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.1.0
+Stable tag: 1.2.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -78,7 +78,10 @@ Yes. Minimums are reported through the Store API (`woocommerce_store_api_cart_er
 Page-builder templates often skip WooCommerce's single-product hooks. Drop a Shortcode widget with `[crfw_minimum]` where you want the note (attributes: `id`, `class`, `before`, `after`).
 
 = Which shipping methods can I pick? =
-Whatever your site has: every shipping method type registered with WooCommerce (core ones and third-party plugins alike) and every instance you configured in every zone. The list is read live from WooCommerce, nothing is hard-coded.
+Whatever your site has: every shipping method type registered with WooCommerce (core ones and third-party plugins alike) and every enabled instance you configured in every zone. The list is read live from WooCommerce, nothing is hard-coded.
+
+= A shipping method is missing from the list on the product =
+Methods you have switched off in WooCommerce → Settings → Shipping are not offered, because a shop cannot use them. Enable it there and it appears. A disabled method that a product already uses stays in its list, marked "(disabled)", so a rule you set is never dropped silently. To list every method regardless, return true from the `crfw_show_disabled_shipping_methods` filter.
 
 = Can I change the wording? =
 Every message has a field under WooCommerce → Settings → Cart Rules, with placeholders. Or translate the defaults — the plugin is fully internationalised.
@@ -96,6 +99,10 @@ Not unless you tick "Remove data" in the settings first. By default nothing is d
 
 == Changelog ==
 
+= 1.2.0 =
+* The *Allowed shipping methods* field no longer lists methods you have switched off in WooCommerce. A shop that has reorganised its zones can carry dozens of disabled leftovers, and offering them made the field unusable. A disabled method a product already uses is still listed, marked "(disabled)", so no rule is dropped without you seeing it.
+* New filter `crfw_show_disabled_shipping_methods` to list them anyway; `crfw_shipping_method_choices` now receives the product's stored ids as a second argument.
+
 = 1.1.0 =
 * New **WooCommerce → Cart Rules** guide page: a plain-language walkthrough that names the exact location of every feature, with links straight to the product list, the shipping zones and the settings tab, plus a worked example of how several products in one cart are combined and a short troubleshooting table. It writes nothing — the settings stay where WooCommerce users expect them.
 * "Guide" link added next to "Settings" on the Plugins screen, and a link to the guide from the settings tab.
@@ -105,6 +112,9 @@ Not unless you tick "Remove data" in the settings first. By default nothing is d
 * Initial release: per-product minimum quantity and minimum spend, store-wide minimum order amount, per-product allowed shipping methods (intersection across the cart), editable messages, classic + block cart/checkout, HPOS compatible, `[crfw_minimum]` shortcode, Persian/Arabic/German translations.
 
 == Upgrade Notice ==
+
+= 1.2.0 =
+The shipping-method field now hides methods disabled in WooCommerce. Existing product rules are untouched.
 
 = 1.1.0 =
 Adds a guide page under WooCommerce → Cart Rules. No settings change.

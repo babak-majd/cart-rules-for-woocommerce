@@ -93,7 +93,7 @@ class CRFW_Product_Data {
 
 		$selected = self::meta_value( $product_object, CRFW_Rules::META_SHIPPING );
 		$selected = is_array( $selected ) ? array_map( 'strval', $selected ) : array();
-		$groups   = CRFW_Shipping::get_method_choices();
+		$groups   = CRFW_Shipping::get_method_choices( $selected );
 		$field_id = CRFW_Rules::META_SHIPPING;
 		?>
 		<div class="options_group crfw-shipping">
@@ -108,7 +108,7 @@ class CRFW_Product_Data {
 						</optgroup>
 					<?php endforeach; ?>
 				</select>
-				<?php echo wc_help_tip( __( 'Only these methods are offered when this product is in the cart. With several restricted products in one cart, only the methods they all allow are offered. Leave empty to allow every method.', 'cart-rules-for-woocommerce' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- wc_help_tip() escapes. ?>
+				<?php echo wc_help_tip( __( 'Only these methods are offered when this product is in the cart. With several restricted products in one cart, only the methods they all allow are offered. Leave empty to allow every method. Methods you have switched off in WooCommerce are not listed.', 'cart-rules-for-woocommerce' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- wc_help_tip() escapes. ?>
 			</p>
 			<?php if ( empty( $groups ) ) : ?>
 				<p class="form-field"><span class="description"><?php esc_html_e( 'No shipping methods are configured yet. Add some under WooCommerce → Settings → Shipping.', 'cart-rules-for-woocommerce' ); ?></span></p>

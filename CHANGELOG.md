@@ -3,6 +3,18 @@
 All notable changes to this project are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versions follow [SemVer](https://semver.org/).
 
+## [1.2.0] — 2026-09-25
+
+### Changed
+- The *Allowed shipping methods* field lists only methods that are **enabled** in
+  WooCommerce → Settings → Shipping. A store that has reorganised its zones can carry dozens of
+  disabled leftovers, which made the field unusable. A disabled method a product already uses is
+  still listed, marked "(disabled)", so an existing rule is never dropped silently.
+
+### Added
+- Filter `crfw_show_disabled_shipping_methods` (default `false`) to list disabled methods anyway.
+- `crfw_shipping_method_choices` now also receives the product's stored method ids.
+
 ## [1.1.0] — 2026-09-22
 
 ### Added

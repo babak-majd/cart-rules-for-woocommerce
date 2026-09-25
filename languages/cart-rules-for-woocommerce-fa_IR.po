@@ -2,10 +2,10 @@
 # This file is distributed under the GPL-2.0-or-later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Cart Rules for WooCommerce 1.1.0\n"
+"Project-Id-Version: Cart Rules for WooCommerce 1.2.0\n"
 "Report-Msgid-Bugs-To: https://github.com/babak-majd/cart-rules-for-woocommerce/issues\n"
-"POT-Creation-Date: 2026-09-22 17:55+0000\n"
-"PO-Revision-Date: 2026-09-22 17:55+0000\n"
+"POT-Creation-Date: 2026-09-25 11:21+0000\n"
+"PO-Revision-Date: 2026-09-25 11:21+0000\n"
 "Last-Translator: Baabak Majd <baabak.majd@gmail.com>\n"
 "Language-Team: Persian\n"
 "Language: fa_IR\n"
@@ -147,199 +147,211 @@ msgstr "بر اساس منطقه"
 msgid "one exact method you configured in one zone, under its own name. Best when only that one delivery service can carry the product."
 msgstr "دقیقاً همان روشی که در یک منطقه تعریف کرده‌اید، با نام خودش. وقتی بهترین گزینه است که فقط همان یک سرویس بتواند محصول را حمل کند."
 
-#: includes/admin/class-crfw-help.php:181
+#: includes/admin/class-crfw-help.php:177
+msgid "Only methods that are switched on are listed. If one is missing, enable it under WooCommerce → Settings → Shipping. A method you switch off later stays in the list of any product that already uses it, marked “(disabled)”, so no rule disappears without you seeing it."
+msgstr "فقط روش‌هایی فهرست می‌شوند که فعال باشند. اگر روشی نیست، از ووکامرس ← تنظیمات ← حمل و نقل فعالش کنید. اگر بعداً روشی را غیرفعال کنید، در فهرست هر محصولی که از قبل از آن استفاده می‌کند با برچسب «(غیرفعال)» باقی می‌ماند تا هیچ قانونی بی‌خبر شما از بین نرود."
+
+#: includes/admin/class-crfw-help.php:184
 msgid "The methods themselves are created in %1$sWooCommerce → Settings → Shipping%2$s. Anything you add there appears here automatically, including methods added by other plugins."
 msgstr "خود روش‌ها در %1$sووکامرس ← تنظیمات ← حمل و نقل%2$s ساخته می‌شوند. هر چیزی آنجا اضافه کنید خودکار اینجا ظاهر می‌شود، از جمله روش‌هایی که افزونه‌های دیگر اضافه می‌کنند."
 
-#: includes/admin/class-crfw-help.php:191
+#: includes/admin/class-crfw-help.php:194
 msgid "3. How several products in one cart are handled"
 msgstr "۳. وقتی چند محصول در یک سبد باشند چه می‌شود"
 
-#: includes/admin/class-crfw-help.php:192
+#: includes/admin/class-crfw-help.php:195
 msgid "Minimums: every product must clear its own bar."
 msgstr "حد نصاب‌ها: هر محصول باید حد نصاب خودش را رد کند."
 
-#: includes/admin/class-crfw-help.php:193
+#: includes/admin/class-crfw-help.php:196
 msgid "One product reaching its minimum does not help another. If any product in the cart is below its own minimum, checkout is blocked and the message names that product and the figure it is missing."
 msgstr "رسیدن یک محصول به حد نصابش کمکی به محصول دیگر نمی‌کند. اگر هر محصولی در سبد زیر حد نصاب خودش باشد، تسویه‌حساب بسته می‌شود و پیام نام همان محصول و مقدار کم‌بودش را می‌گوید."
 
-#: includes/admin/class-crfw-help.php:195
+#: includes/admin/class-crfw-help.php:198
 msgid "Shipping: only the methods they all allow are offered."
 msgstr "ارسال: فقط روش‌هایی که همه اجازه می‌دهند نمایش داده می‌شود."
 
-#: includes/admin/class-crfw-help.php:196
+#: includes/admin/class-crfw-help.php:199
 msgid "A product with no restriction accepts anything, so it never narrows the list."
 msgstr "محصولی که محدودیتی ندارد همه‌چیز را می‌پذیرد، پس هیچ‌وقت فهرست را تنگ‌تر نمی‌کند."
 
-#: includes/admin/class-crfw-help.php:199
+#: includes/admin/class-crfw-help.php:202
 msgid "Example"
 msgstr "مثال"
 
-#: includes/admin/class-crfw-help.php:201
+#: includes/admin/class-crfw-help.php:204
 msgid "Product A allows: Post, Courier"
 msgstr "محصول الف اجازه می‌دهد: پست، پیک"
 
-#: includes/admin/class-crfw-help.php:202
+#: includes/admin/class-crfw-help.php:205
 msgid "Product B allows: Courier, Freight"
 msgstr "محصول ب اجازه می‌دهد: پیک، باربری"
 
-#: includes/admin/class-crfw-help.php:203
+#: includes/admin/class-crfw-help.php:206
 msgid "Product C has no restriction"
 msgstr "محصول ج هیچ محدودیتی ندارد"
 
-#: includes/admin/class-crfw-help.php:205
+#: includes/admin/class-crfw-help.php:208
 msgid "A + B + C in one cart → only Courier is offered. If B allowed Freight alone, nothing would be shared: no shipping method is shown and the customer is told which products cannot travel together, so they can order them separately."
 msgstr "الف + ب + ج در یک سبد ← فقط پیک نمایش داده می‌شود. اگر ب فقط باربری را اجازه می‌داد، هیچ روش مشترکی نمی‌ماند: هیچ روش ارسالی نمایش داده نمی‌شود و به مشتری گفته می‌شود کدام محصولات با هم قابل ارسال نیستند تا آن‌ها را جداگانه سفارش دهد."
 
-#: includes/admin/class-crfw-help.php:210
+#: includes/admin/class-crfw-help.php:213
 msgid "4. Rules for the whole order"
 msgstr "۴. قوانین کل سفارش"
 
-#: includes/admin/class-crfw-help.php:217
+#: includes/admin/class-crfw-help.php:220
 msgid "%1$sWooCommerce → Settings → Cart Rules%2$s"
 msgstr "%1$sووکامرس ← تنظیمات ← قوانین سبد خرید%2$s"
 
-#: includes/admin/class-crfw-help.php:227
+#: includes/admin/class-crfw-help.php:230
 msgid "Section"
 msgstr "بخش"
 
-#: includes/admin/class-crfw-help.php:228
+#: includes/admin/class-crfw-help.php:231
 msgid "What you set there"
 msgstr "چه چیزی آنجا تنظیم می‌کنید"
 
-#: includes/admin/class-crfw-help.php:233
+#: includes/admin/class-crfw-help.php:236
 msgid "Whole cart"
 msgstr "کل سبد خرید"
 
-#: includes/admin/class-crfw-help.php:234
+#: includes/admin/class-crfw-help.php:237
 msgid "The minimum order amount — below it nobody can check out — and whether it is compared against the subtotal or the total after coupons. Shipping costs are never counted."
 msgstr "حداقل مبلغ سفارش — زیر آن هیچ‌کس نمی‌تواند تسویه کند — و اینکه با جمع جزء مقایسه شود یا با جمع پس از کوپن. هزینهٔ ارسال هیچ‌وقت حساب نمی‌شود."
 
-#: includes/admin/class-crfw-help.php:237
+#: includes/admin/class-crfw-help.php:240
 msgid "Per-product defaults"
 msgstr "پیش‌فرض‌های هر محصول"
 
-#: includes/admin/class-crfw-help.php:238
+#: includes/admin/class-crfw-help.php:241
 msgid "A minimum quantity and a minimum spend for every product that has no value of its own — so you set a rule once instead of on a thousand products. Also: whether quantity fields start at the minimum, and whether the product page shows a note."
 msgstr "حداقل تعداد و حداقل مبلغ خرید برای هر محصولی که مقدار اختصاصی ندارد — یعنی یک بار قانون می‌گذارید به‌جای هزار محصول. همچنین: اینکه فیلد تعداد از حد نصاب شروع شود و اینکه صفحهٔ محصول یادداشت نشان دهد."
 
-#: includes/admin/class-crfw-help.php:241
+#: includes/admin/class-crfw-help.php:244
 msgid "Messages"
 msgstr "پیام‌ها"
 
-#: includes/admin/class-crfw-help.php:242
+#: includes/admin/class-crfw-help.php:245
 msgid "The exact wording the customer reads for each rule. Leave a field empty to keep the default text shown in grey inside it."
 msgstr "متن دقیقی که مشتری برای هر قانون می‌خواند. برای حفظ متن پیش‌فرض — که کم‌رنگ داخل خود فیلد نوشته شده — فیلد را خالی بگذارید."
 
-#: includes/admin/class-crfw-help.php:245
+#: includes/admin/class-crfw-help.php:248
 msgid "Uninstall"
 msgstr "حذف افزونه"
 
-#: includes/admin/class-crfw-help.php:246
+#: includes/admin/class-crfw-help.php:249
 msgid "Whether deleting the plugin also deletes your rules. Off by default, so nothing is lost by accident."
 msgstr "اینکه حذف افزونه قوانین شما را هم پاک کند یا نه. به‌صورت پیش‌فرض خاموش است تا چیزی تصادفی از دست نرود."
 
-#: includes/admin/class-crfw-help.php:253
+#: includes/admin/class-crfw-help.php:256
 msgid "5. Wording the messages"
 msgstr "۵. تنظیم متن پیام‌ها"
 
-#: includes/admin/class-crfw-help.php:256
+#: includes/admin/class-crfw-help.php:259
 msgid "Settings → Cart Rules → Messages"
 msgstr "تنظیمات ← قوانین سبد خرید ← پیام‌ها"
 
-#: includes/admin/class-crfw-help.php:258
+#: includes/admin/class-crfw-help.php:261
 msgid "Write your own text and drop these placeholders in it — they are replaced with the real values:"
 msgstr "متن خودتان را بنویسید و این جای‌نگهدارها را داخلش بگذارید — با مقدار واقعی جایگزین می‌شوند:"
 
-#: includes/admin/class-crfw-help.php:263
+#: includes/admin/class-crfw-help.php:266
 msgid "The name of the product that is below its minimum."
 msgstr "نام محصولی که زیر حد نصاب خودش است."
 
-#: includes/admin/class-crfw-help.php:267
+#: includes/admin/class-crfw-help.php:270
 msgid "The required minimum (a quantity or an amount, whichever the rule is about)."
 msgstr "حد نصاب لازم (تعداد یا مبلغ، بسته به اینکه قانون دربارهٔ کدام است)."
 
-#: includes/admin/class-crfw-help.php:271
+#: includes/admin/class-crfw-help.php:274
 msgid "What the customer currently has."
 msgstr "چیزی که مشتری در حال حاضر دارد."
 
-#: includes/admin/class-crfw-help.php:275
+#: includes/admin/class-crfw-help.php:278
 msgid "The list of products that cannot be shipped together (shipping message only)."
 msgstr "فهرست محصولاتی که با هم قابل ارسال نیستند (فقط در پیام ارسال)."
 
-#: includes/admin/class-crfw-help.php:282
+#: includes/admin/class-crfw-help.php:285
 msgid "6. What the customer sees"
 msgstr "۶. مشتری چه می‌بیند"
 
-#: includes/admin/class-crfw-help.php:284
+#: includes/admin/class-crfw-help.php:287
 msgid "On the product page:"
 msgstr "در صفحهٔ محصول:"
 
-#: includes/admin/class-crfw-help.php:284
+#: includes/admin/class-crfw-help.php:287
 msgid "the quantity field starts at the minimum, and a short note under the price says what the minimum is."
 msgstr "فیلد تعداد از حد نصاب شروع می‌شود و یادداشت کوتاهی زیر قیمت می‌گوید حد نصاب چقدر است."
 
-#: includes/admin/class-crfw-help.php:285
+#: includes/admin/class-crfw-help.php:288
 msgid "When adding to the cart:"
 msgstr "هنگام افزودن به سبد:"
 
-#: includes/admin/class-crfw-help.php:285
+#: includes/admin/class-crfw-help.php:288
 msgid "a quantity below the minimum is refused right away, with the reason."
 msgstr "تعداد کمتر از حد نصاب همان‌جا با ذکر دلیل رد می‌شود."
 
-#: includes/admin/class-crfw-help.php:286
+#: includes/admin/class-crfw-help.php:289
 msgid "In the cart and at checkout:"
 msgstr "در سبد خرید و تسویه‌حساب:"
 
-#: includes/admin/class-crfw-help.php:286
+#: includes/admin/class-crfw-help.php:289
 msgid "any unmet rule is shown as an error and the order cannot be placed until it is fixed."
 msgstr "هر قانون رعایت‌نشده به‌صورت خطا نمایش داده می‌شود و تا رفع نشود سفارش ثبت نمی‌شود."
 
-#: includes/admin/class-crfw-help.php:287
+#: includes/admin/class-crfw-help.php:290
 msgid "In the shipping choices:"
 msgstr "در گزینه‌های ارسال:"
 
-#: includes/admin/class-crfw-help.php:287
+#: includes/admin/class-crfw-help.php:290
 msgid "only the methods allowed for everything in the cart are listed."
 msgstr "فقط روش‌هایی فهرست می‌شوند که برای همهٔ اقلام سبد مجاز باشند."
 
-#: includes/admin/class-crfw-help.php:294
+#: includes/admin/class-crfw-help.php:297
 msgid "Building your product page with Elementor, Divi or another builder? Those templates skip WooCommerce's own hooks, so the note under the price may not appear. Place it yourself with the %s shortcode — it accepts id, class, before and after."
 msgstr "صفحهٔ محصولتان را با المنتور، Divi یا سازندهٔ دیگری ساخته‌اید؟ آن قالب‌ها هوک‌های خود ووکامرس را اجرا نمی‌کنند، پس ممکن است یادداشت زیر قیمت ظاهر نشود. با شورت‌کد %s خودتان آن را هر جا بخواهید بگذارید — پارامترهای id، class، before و after را می‌پذیرد."
 
-#: includes/admin/class-crfw-help.php:303
+#: includes/admin/class-crfw-help.php:306
 msgid "If something does not work"
 msgstr "اگر چیزی کار نکرد"
 
-#: includes/admin/class-crfw-help.php:307
+#: includes/admin/class-crfw-help.php:310
 msgid "A rule has no effect"
 msgstr "قانون اثری ندارد"
 
-#: includes/admin/class-crfw-help.php:308
+#: includes/admin/class-crfw-help.php:311
 msgid "Check you set it on the product itself and saved (Update). On a variable product the rule belongs on the parent, not on a single variation."
 msgstr "مطمئن شوید آن را روی خود محصول تنظیم و ذخیره کرده‌اید (به‌روزرسانی). در محصول متغیر، قانون روی محصول اصلی است، نه روی یک متغیر."
 
-#: includes/admin/class-crfw-help.php:311
+#: includes/admin/class-crfw-help.php:314
 msgid "A shipping method still shows up"
 msgstr "یک روش ارسال هنوز نمایش داده می‌شود"
 
-#: includes/admin/class-crfw-help.php:312
+#: includes/admin/class-crfw-help.php:315
 msgid "Shipping choices are cached per visitor. Empty the cart, or change the delivery address once, to see the new list. A caching plugin may need its cache cleared too."
 msgstr "گزینه‌های ارسال برای هر بازدیدکننده کش می‌شوند. سبد را خالی کنید یا یک بار نشانی تحویل را تغییر دهید تا فهرست تازه را ببینید. ممکن است لازم باشد کش افزونهٔ کش را هم پاک کنید."
 
-#: includes/admin/class-crfw-help.php:315
+#: includes/admin/class-crfw-help.php:318
 msgid "Another minimum-order message appears"
 msgstr "پیام حداقل سفارش دیگری نمایش داده می‌شود"
 
-#: includes/admin/class-crfw-help.php:316
+#: includes/admin/class-crfw-help.php:319
 msgid "Another plugin or a snippet in your theme is enforcing its own minimum. Turn that one off, or leave the minimum order amount here empty, so your customers are told one thing only."
 msgstr "افزونهٔ دیگری یا یک تکه کد در قالب شما دارد حداقل خودش را اعمال می‌کند. آن یکی را خاموش کنید یا حداقل مبلغ سفارش اینجا را خالی بگذارید تا به مشتری فقط یک چیز گفته شود."
 
-#: includes/admin/class-crfw-help.php:319
+#: includes/admin/class-crfw-help.php:322
+msgid "A shipping method is missing from the product list"
+msgstr "یک روش ارسال در فهرست محصول نیست"
+
+#: includes/admin/class-crfw-help.php:323
+msgid "It is switched off in WooCommerce → Settings → Shipping. Only methods your shop can actually use are offered."
+msgstr "در ووکامرس ← تنظیمات ← حمل و نقل غیرفعال است. فقط روش‌هایی پیشنهاد می‌شوند که فروشگاه واقعاً می‌تواند از آن‌ها استفاده کند."
+
+#: includes/admin/class-crfw-help.php:326
 msgid "The quantity field does not start at the minimum"
 msgstr "فیلد تعداد از حد نصاب شروع نمی‌شود"
 
-#: includes/admin/class-crfw-help.php:320
+#: includes/admin/class-crfw-help.php:327
 msgid "That behaviour has a switch: Settings → Cart Rules → Per-product defaults → Quantity fields."
 msgstr "این رفتار کلید دارد: تنظیمات ← قوانین سبد خرید ← پیش‌فرض‌های هر محصول ← فیلدهای تعداد."
 
@@ -376,8 +388,8 @@ msgid "Any shipping method"
 msgstr "همهٔ روش‌های ارسال"
 
 #: includes/admin/class-crfw-product-data.php:111
-msgid "Only these methods are offered when this product is in the cart. With several restricted products in one cart, only the methods they all allow are offered. Leave empty to allow every method."
-msgstr "وقتی این محصول در سبد باشد فقط این روش‌ها نمایش داده می‌شوند. اگر چند محصول محدودشده در یک سبد باشند، فقط روش‌های مشترک بین همهٔ آن‌ها نمایش داده می‌شود. برای مجاز بودن همهٔ روش‌ها خالی بگذارید."
+msgid "Only these methods are offered when this product is in the cart. With several restricted products in one cart, only the methods they all allow are offered. Leave empty to allow every method. Methods you have switched off in WooCommerce are not listed."
+msgstr "وقتی این محصول در سبد باشد فقط این روش‌ها نمایش داده می‌شوند. اگر چند محصول محدودشده در یک سبد باشند، فقط روش‌های مشترک بین همهٔ آن‌ها نمایش داده می‌شود. برای مجاز بودن همهٔ روش‌ها خالی بگذارید. روش‌هایی که در ووکامرس غیرفعال کرده‌اید فهرست نمی‌شوند."
 
 #: includes/admin/class-crfw-product-data.php:114
 msgid "No shipping methods are configured yet. Add some under WooCommerce → Settings → Shipping."
@@ -517,11 +529,11 @@ msgstr "تلگرام"
 msgid "Enjoying it? %s"
 msgstr "راضی هستید؟ %s"
 
-#: includes/class-crfw-shipping.php:104
+#: includes/class-crfw-shipping.php:114
 msgid "Any “%s” method"
 msgstr "هر روش «%s»"
 
-#: includes/class-crfw-shipping.php:122
+#: includes/class-crfw-shipping.php:146
 msgid "%s (disabled)"
 msgstr "%s (غیرفعال)"
 

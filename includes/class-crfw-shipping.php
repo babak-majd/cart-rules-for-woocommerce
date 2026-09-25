@@ -93,9 +93,19 @@ class CRFW_Shipping {
 	 * `<select>`: first "any instance of a method type", then each zone's
 	 * configured instances.
 	 *
+	 * A zone instance the merchant has switched off in WooCommerce is left out —
+	 * offering it would fill the field with methods the shop cannot use (a store
+	 * that has reorganised its zones can carry dozens of them). The one exception
+	 * is an instance this product has already been given: dropping that silently
+	 * would change the product's rule behind the merchant's back, so it stays,
+	 * marked "(disabled)".
+	 *
+	 * @since 1.2.0 The `$selected` parameter; disabled instances are hidden.
+	 *
+	 * @param string[] $selected Ids already stored on the product, which are always listed.
 	 * @return array<int,array{label:string,options:array<string,string>}>
 	 */
-	public static function get_method_choices() {
+	public static function get_method_choices( array $selected = array() ) {
 		$groups = array();
 
 		$types = array();
@@ -110,18 +120,32 @@ class CRFW_Shipping {
 			);
 		}
 
+		/**
+		 * Filter whether shipping methods disabled in WooCommerce are offered anyway.
+		 *
+		 * @since 1.2.0
+		 *
+		 * @param bool     $show_disabled Default false — only enabled methods are listed.
+		 * @param string[] $selected      Ids already stored on the product.
+		 */
+		$show_disabled = (bool) apply_filters( 'crfw_show_disabled_shipping_methods', false, $selected );
+
 		$zones   = WC_Shipping_Zones::get_zones();
 		$zones[] = array( 'zone_id' => 0 ); // "Locations not covered by your other zones".
 		foreach ( $zones as $zone_data ) {
 			$zone    = new WC_Shipping_Zone( $zone_data['zone_id'] );
 			$options = array();
 			foreach ( $zone->get_shipping_methods() as $instance ) {
+				$id    = $instance->id . ':' . $instance->get_instance_id();
 				$label = $instance->get_title();
 				if ( ! $instance->is_enabled() ) {
+					if ( ! $show_disabled && ! in_array( $id, $selected, true ) ) {
+						continue;
+					}
 					/* translators: %s: shipping method title. */
 					$label = sprintf( __( '%s (disabled)', 'cart-rules-for-woocommerce' ), $label );
 				}
-				$options[ $instance->id . ':' . $instance->get_instance_id() ] = $label;
+				$options[ $id ] = $label;
 			}
 			if ( $options ) {
 				$groups[] = array(
@@ -136,9 +160,10 @@ class CRFW_Shipping {
 		 *
 		 * @since 1.0.0
 		 *
-		 * @param array $groups Groups of { label, options: id => label }.
+		 * @param array    $groups   Groups of { label, options: id => label }.
+		 * @param string[] $selected Ids already stored on the product.
 		 */
-		return apply_filters( 'crfw_shipping_method_choices', $groups );
+		return apply_filters( 'crfw_shipping_method_choices', $groups, $selected );
 	}
 
 	/**
@@ -149,7 +174,7 @@ class CRFW_Shipping {
 	 */
 	public static function labels_for( array $ids ) {
 		$lookup = array();
-		foreach ( self::get_method_choices() as $group ) {
+		foreach ( self::get_method_choices( $ids ) as $group ) {
 			foreach ( $group['options'] as $id => $label ) {
 				$lookup[ $id ] = $label;
 			}

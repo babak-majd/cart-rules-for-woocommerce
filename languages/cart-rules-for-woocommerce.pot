@@ -2,9 +2,9 @@
 # This file is distributed under the GPL-2.0-or-later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Cart Rules for WooCommerce 1.1.0\n"
+"Project-Id-Version: Cart Rules for WooCommerce 1.2.0\n"
 "Report-Msgid-Bugs-To: https://github.com/babak-majd/cart-rules-for-woocommerce/issues\n"
-"POT-Creation-Date: 2026-09-22 17:55+0000\n"
+"POT-Creation-Date: 2026-09-25 11:21+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Baabak Majd <baabak.majd@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -147,199 +147,211 @@ msgstr ""
 msgid "one exact method you configured in one zone, under its own name. Best when only that one delivery service can carry the product."
 msgstr ""
 
-#: includes/admin/class-crfw-help.php:181
+#: includes/admin/class-crfw-help.php:177
+msgid "Only methods that are switched on are listed. If one is missing, enable it under WooCommerce → Settings → Shipping. A method you switch off later stays in the list of any product that already uses it, marked “(disabled)”, so no rule disappears without you seeing it."
+msgstr ""
+
+#: includes/admin/class-crfw-help.php:184
 msgid "The methods themselves are created in %1$sWooCommerce → Settings → Shipping%2$s. Anything you add there appears here automatically, including methods added by other plugins."
 msgstr ""
 
-#: includes/admin/class-crfw-help.php:191
+#: includes/admin/class-crfw-help.php:194
 msgid "3. How several products in one cart are handled"
 msgstr ""
 
-#: includes/admin/class-crfw-help.php:192
+#: includes/admin/class-crfw-help.php:195
 msgid "Minimums: every product must clear its own bar."
 msgstr ""
 
-#: includes/admin/class-crfw-help.php:193
+#: includes/admin/class-crfw-help.php:196
 msgid "One product reaching its minimum does not help another. If any product in the cart is below its own minimum, checkout is blocked and the message names that product and the figure it is missing."
 msgstr ""
 
-#: includes/admin/class-crfw-help.php:195
+#: includes/admin/class-crfw-help.php:198
 msgid "Shipping: only the methods they all allow are offered."
 msgstr ""
 
-#: includes/admin/class-crfw-help.php:196
+#: includes/admin/class-crfw-help.php:199
 msgid "A product with no restriction accepts anything, so it never narrows the list."
 msgstr ""
 
-#: includes/admin/class-crfw-help.php:199
+#: includes/admin/class-crfw-help.php:202
 msgid "Example"
 msgstr ""
 
-#: includes/admin/class-crfw-help.php:201
+#: includes/admin/class-crfw-help.php:204
 msgid "Product A allows: Post, Courier"
 msgstr ""
 
-#: includes/admin/class-crfw-help.php:202
+#: includes/admin/class-crfw-help.php:205
 msgid "Product B allows: Courier, Freight"
 msgstr ""
 
-#: includes/admin/class-crfw-help.php:203
+#: includes/admin/class-crfw-help.php:206
 msgid "Product C has no restriction"
 msgstr ""
 
-#: includes/admin/class-crfw-help.php:205
+#: includes/admin/class-crfw-help.php:208
 msgid "A + B + C in one cart → only Courier is offered. If B allowed Freight alone, nothing would be shared: no shipping method is shown and the customer is told which products cannot travel together, so they can order them separately."
 msgstr ""
 
-#: includes/admin/class-crfw-help.php:210
+#: includes/admin/class-crfw-help.php:213
 msgid "4. Rules for the whole order"
 msgstr ""
 
-#: includes/admin/class-crfw-help.php:217
+#: includes/admin/class-crfw-help.php:220
 msgid "%1$sWooCommerce → Settings → Cart Rules%2$s"
 msgstr ""
 
-#: includes/admin/class-crfw-help.php:227
+#: includes/admin/class-crfw-help.php:230
 msgid "Section"
 msgstr ""
 
-#: includes/admin/class-crfw-help.php:228
+#: includes/admin/class-crfw-help.php:231
 msgid "What you set there"
 msgstr ""
 
-#: includes/admin/class-crfw-help.php:233
+#: includes/admin/class-crfw-help.php:236
 msgid "Whole cart"
 msgstr ""
 
-#: includes/admin/class-crfw-help.php:234
+#: includes/admin/class-crfw-help.php:237
 msgid "The minimum order amount — below it nobody can check out — and whether it is compared against the subtotal or the total after coupons. Shipping costs are never counted."
 msgstr ""
 
-#: includes/admin/class-crfw-help.php:237
+#: includes/admin/class-crfw-help.php:240
 msgid "Per-product defaults"
 msgstr ""
 
-#: includes/admin/class-crfw-help.php:238
+#: includes/admin/class-crfw-help.php:241
 msgid "A minimum quantity and a minimum spend for every product that has no value of its own — so you set a rule once instead of on a thousand products. Also: whether quantity fields start at the minimum, and whether the product page shows a note."
 msgstr ""
 
-#: includes/admin/class-crfw-help.php:241
+#: includes/admin/class-crfw-help.php:244
 msgid "Messages"
 msgstr ""
 
-#: includes/admin/class-crfw-help.php:242
+#: includes/admin/class-crfw-help.php:245
 msgid "The exact wording the customer reads for each rule. Leave a field empty to keep the default text shown in grey inside it."
 msgstr ""
 
-#: includes/admin/class-crfw-help.php:245
+#: includes/admin/class-crfw-help.php:248
 msgid "Uninstall"
 msgstr ""
 
-#: includes/admin/class-crfw-help.php:246
+#: includes/admin/class-crfw-help.php:249
 msgid "Whether deleting the plugin also deletes your rules. Off by default, so nothing is lost by accident."
 msgstr ""
 
-#: includes/admin/class-crfw-help.php:253
+#: includes/admin/class-crfw-help.php:256
 msgid "5. Wording the messages"
 msgstr ""
 
-#: includes/admin/class-crfw-help.php:256
+#: includes/admin/class-crfw-help.php:259
 msgid "Settings → Cart Rules → Messages"
 msgstr ""
 
-#: includes/admin/class-crfw-help.php:258
+#: includes/admin/class-crfw-help.php:261
 msgid "Write your own text and drop these placeholders in it — they are replaced with the real values:"
 msgstr ""
 
-#: includes/admin/class-crfw-help.php:263
+#: includes/admin/class-crfw-help.php:266
 msgid "The name of the product that is below its minimum."
 msgstr ""
 
-#: includes/admin/class-crfw-help.php:267
+#: includes/admin/class-crfw-help.php:270
 msgid "The required minimum (a quantity or an amount, whichever the rule is about)."
 msgstr ""
 
-#: includes/admin/class-crfw-help.php:271
+#: includes/admin/class-crfw-help.php:274
 msgid "What the customer currently has."
 msgstr ""
 
-#: includes/admin/class-crfw-help.php:275
+#: includes/admin/class-crfw-help.php:278
 msgid "The list of products that cannot be shipped together (shipping message only)."
 msgstr ""
 
-#: includes/admin/class-crfw-help.php:282
+#: includes/admin/class-crfw-help.php:285
 msgid "6. What the customer sees"
 msgstr ""
 
-#: includes/admin/class-crfw-help.php:284
+#: includes/admin/class-crfw-help.php:287
 msgid "On the product page:"
 msgstr ""
 
-#: includes/admin/class-crfw-help.php:284
+#: includes/admin/class-crfw-help.php:287
 msgid "the quantity field starts at the minimum, and a short note under the price says what the minimum is."
 msgstr ""
 
-#: includes/admin/class-crfw-help.php:285
+#: includes/admin/class-crfw-help.php:288
 msgid "When adding to the cart:"
 msgstr ""
 
-#: includes/admin/class-crfw-help.php:285
+#: includes/admin/class-crfw-help.php:288
 msgid "a quantity below the minimum is refused right away, with the reason."
 msgstr ""
 
-#: includes/admin/class-crfw-help.php:286
+#: includes/admin/class-crfw-help.php:289
 msgid "In the cart and at checkout:"
 msgstr ""
 
-#: includes/admin/class-crfw-help.php:286
+#: includes/admin/class-crfw-help.php:289
 msgid "any unmet rule is shown as an error and the order cannot be placed until it is fixed."
 msgstr ""
 
-#: includes/admin/class-crfw-help.php:287
+#: includes/admin/class-crfw-help.php:290
 msgid "In the shipping choices:"
 msgstr ""
 
-#: includes/admin/class-crfw-help.php:287
+#: includes/admin/class-crfw-help.php:290
 msgid "only the methods allowed for everything in the cart are listed."
 msgstr ""
 
-#: includes/admin/class-crfw-help.php:294
+#: includes/admin/class-crfw-help.php:297
 msgid "Building your product page with Elementor, Divi or another builder? Those templates skip WooCommerce's own hooks, so the note under the price may not appear. Place it yourself with the %s shortcode — it accepts id, class, before and after."
 msgstr ""
 
-#: includes/admin/class-crfw-help.php:303
+#: includes/admin/class-crfw-help.php:306
 msgid "If something does not work"
 msgstr ""
 
-#: includes/admin/class-crfw-help.php:307
+#: includes/admin/class-crfw-help.php:310
 msgid "A rule has no effect"
 msgstr ""
 
-#: includes/admin/class-crfw-help.php:308
+#: includes/admin/class-crfw-help.php:311
 msgid "Check you set it on the product itself and saved (Update). On a variable product the rule belongs on the parent, not on a single variation."
 msgstr ""
 
-#: includes/admin/class-crfw-help.php:311
+#: includes/admin/class-crfw-help.php:314
 msgid "A shipping method still shows up"
 msgstr ""
 
-#: includes/admin/class-crfw-help.php:312
+#: includes/admin/class-crfw-help.php:315
 msgid "Shipping choices are cached per visitor. Empty the cart, or change the delivery address once, to see the new list. A caching plugin may need its cache cleared too."
 msgstr ""
 
-#: includes/admin/class-crfw-help.php:315
+#: includes/admin/class-crfw-help.php:318
 msgid "Another minimum-order message appears"
 msgstr ""
 
-#: includes/admin/class-crfw-help.php:316
+#: includes/admin/class-crfw-help.php:319
 msgid "Another plugin or a snippet in your theme is enforcing its own minimum. Turn that one off, or leave the minimum order amount here empty, so your customers are told one thing only."
 msgstr ""
 
-#: includes/admin/class-crfw-help.php:319
+#: includes/admin/class-crfw-help.php:322
+msgid "A shipping method is missing from the product list"
+msgstr ""
+
+#: includes/admin/class-crfw-help.php:323
+msgid "It is switched off in WooCommerce → Settings → Shipping. Only methods your shop can actually use are offered."
+msgstr ""
+
+#: includes/admin/class-crfw-help.php:326
 msgid "The quantity field does not start at the minimum"
 msgstr ""
 
-#: includes/admin/class-crfw-help.php:320
+#: includes/admin/class-crfw-help.php:327
 msgid "That behaviour has a switch: Settings → Cart Rules → Per-product defaults → Quantity fields."
 msgstr ""
 
@@ -376,7 +388,7 @@ msgid "Any shipping method"
 msgstr ""
 
 #: includes/admin/class-crfw-product-data.php:111
-msgid "Only these methods are offered when this product is in the cart. With several restricted products in one cart, only the methods they all allow are offered. Leave empty to allow every method."
+msgid "Only these methods are offered when this product is in the cart. With several restricted products in one cart, only the methods they all allow are offered. Leave empty to allow every method. Methods you have switched off in WooCommerce are not listed."
 msgstr ""
 
 #: includes/admin/class-crfw-product-data.php:114
@@ -517,11 +529,11 @@ msgstr ""
 msgid "Enjoying it? %s"
 msgstr ""
 
-#: includes/class-crfw-shipping.php:104
+#: includes/class-crfw-shipping.php:114
 msgid "Any “%s” method"
 msgstr ""
 
-#: includes/class-crfw-shipping.php:122
+#: includes/class-crfw-shipping.php:146
 msgid "%s (disabled)"
 msgstr ""
 

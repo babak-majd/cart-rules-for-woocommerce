@@ -173,6 +173,9 @@ class CRFW_Help {
 						<?php esc_html_e( 'one exact method you configured in one zone, under its own name. Best when only that one delivery service can carry the product.', 'cart-rules-for-woocommerce' ); ?>
 					</li>
 				</ul>
+				<p class="crfw-tip">
+					<?php esc_html_e( 'Only methods that are switched on are listed. If one is missing, enable it under WooCommerce → Settings → Shipping. A method you switch off later stays in the list of any product that already uses it, marked “(disabled)”, so no rule disappears without you seeing it.', 'cart-rules-for-woocommerce' ); ?>
+				</p>
 				<p>
 					<?php
 					echo wp_kses_post(
@@ -314,6 +317,10 @@ class CRFW_Help {
 						<tr>
 							<td><strong><?php esc_html_e( 'Another minimum-order message appears', 'cart-rules-for-woocommerce' ); ?></strong></td>
 							<td><?php esc_html_e( 'Another plugin or a snippet in your theme is enforcing its own minimum. Turn that one off, or leave the minimum order amount here empty, so your customers are told one thing only.', 'cart-rules-for-woocommerce' ); ?></td>
+						</tr>
+						<tr>
+							<td><strong><?php esc_html_e( 'A shipping method is missing from the product list', 'cart-rules-for-woocommerce' ); ?></strong></td>
+							<td><?php esc_html_e( 'It is switched off in WooCommerce → Settings → Shipping. Only methods your shop can actually use are offered.', 'cart-rules-for-woocommerce' ); ?></td>
 						</tr>
 						<tr>
 							<td><strong><?php esc_html_e( 'The quantity field does not start at the minimum', 'cart-rules-for-woocommerce' ); ?></strong></td>
