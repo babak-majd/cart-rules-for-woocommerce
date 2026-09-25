@@ -2,10 +2,10 @@
 # This file is distributed under the GPL-2.0-or-later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Cart Rules for WooCommerce 1.2.0\n"
+"Project-Id-Version: Cart Rules for WooCommerce 1.2.1\n"
 "Report-Msgid-Bugs-To: https://github.com/babak-majd/cart-rules-for-woocommerce/issues\n"
-"POT-Creation-Date: 2026-09-25 11:21+0000\n"
-"PO-Revision-Date: 2026-09-25 11:21+0000\n"
+"POT-Creation-Date: 2026-09-25 12:01+0000\n"
+"PO-Revision-Date: 2026-09-25 12:01+0000\n"
 "Last-Translator: Baabak Majd <baabak.majd@gmail.com>\n"
 "Language-Team: Persian\n"
 "Language: fa_IR\n"
@@ -148,8 +148,8 @@ msgid "one exact method you configured in one zone, under its own name. Best whe
 msgstr "دقیقاً همان روشی که در یک منطقه تعریف کرده‌اید، با نام خودش. وقتی بهترین گزینه است که فقط همان یک سرویس بتواند محصول را حمل کند."
 
 #: includes/admin/class-crfw-help.php:177
-msgid "Only methods that are switched on are listed. If one is missing, enable it under WooCommerce → Settings → Shipping. A method you switch off later stays in the list of any product that already uses it, marked “(disabled)”, so no rule disappears without you seeing it."
-msgstr "فقط روش‌هایی فهرست می‌شوند که فعال باشند. اگر روشی نیست، از ووکامرس ← تنظیمات ← حمل و نقل فعالش کنید. اگر بعداً روشی را غیرفعال کنید، در فهرست هر محصولی که از قبل از آن استفاده می‌کند با برچسب «(غیرفعال)» باقی می‌ماند تا هیچ قانونی بی‌خبر شما از بین نرود."
+msgid "Only methods that are switched on are listed — including the “Any …” choices, which appear once at least one method of that kind is enabled somewhere. If one is missing, enable it under WooCommerce → Settings → Shipping. A method you switch off later stays in the list of any product that already uses it, marked “(disabled)”, so no rule disappears without you seeing it."
+msgstr "فقط روش‌هایی فهرست می‌شوند که فعال باشند — از جمله گزینه‌های «هر روش …» که وقتی ظاهر می‌شوند که دست‌کم یک روش از آن نوع جایی فعال باشد. اگر روشی نیست، از ووکامرس ← تنظیمات ← حمل و نقل فعالش کنید. اگر بعداً روشی را غیرفعال کنید، در فهرست هر محصولی که از قبل از آن استفاده می‌کند با برچسب «(غیرفعال)» باقی می‌ماند تا هیچ قانونی بی‌خبر شما از بین نرود."
 
 #: includes/admin/class-crfw-help.php:184
 msgid "The methods themselves are created in %1$sWooCommerce → Settings → Shipping%2$s. Anything you add there appears here automatically, including methods added by other plugins."
@@ -529,13 +529,17 @@ msgstr "تلگرام"
 msgid "Enjoying it? %s"
 msgstr "راضی هستید؟ %s"
 
-#: includes/class-crfw-shipping.php:114
+#: includes/class-crfw-shipping.php:143
+msgid "%s (disabled)"
+msgstr "%s (غیرفعال)"
+
+#: includes/class-crfw-shipping.php:162
 msgid "Any “%s” method"
 msgstr "هر روش «%s»"
 
-#: includes/class-crfw-shipping.php:146
-msgid "%s (disabled)"
-msgstr "%s (غیرفعال)"
+#: includes/class-crfw-shipping.php:165
+msgid "%s (no method enabled)"
+msgstr "%s (هیچ روش فعالی ندارد)"
 
 #: includes/crfw-functions.php:57
 msgid "“{product}” must be ordered in a quantity of at least {min} (you have {current})."

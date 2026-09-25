@@ -5,7 +5,7 @@ Tags: woocommerce, minimum order, minimum quantity, shipping methods, cart
 Requires at least: 6.0
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.2.0
+Stable tag: 1.2.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -81,7 +81,7 @@ Page-builder templates often skip WooCommerce's single-product hooks. Drop a Sho
 Whatever your site has: every shipping method type registered with WooCommerce (core ones and third-party plugins alike) and every enabled instance you configured in every zone. The list is read live from WooCommerce, nothing is hard-coded.
 
 = A shipping method is missing from the list on the product =
-Methods you have switched off in WooCommerce → Settings → Shipping are not offered, because a shop cannot use them. Enable it there and it appears. A disabled method that a product already uses stays in its list, marked "(disabled)", so a rule you set is never dropped silently. To list every method regardless, return true from the `crfw_show_disabled_shipping_methods` filter.
+Methods you have switched off in WooCommerce → Settings → Shipping are not offered, because a shop cannot use them. The same goes for a whole method type: "Any local pickup" is not offered while no local pickup is switched on in any zone. Enable it there and it appears. A disabled method that a product already uses stays in its list, marked "(disabled)", so a rule you set is never dropped silently. To list every method regardless, return true from the `crfw_show_disabled_shipping_methods` filter.
 
 = Can I change the wording? =
 Every message has a field under WooCommerce → Settings → Cart Rules, with placeholders. Or translate the defaults — the plugin is fully internationalised.
@@ -99,6 +99,9 @@ Not unless you tick "Remove data" in the settings first. By default nothing is d
 
 == Changelog ==
 
+= 1.2.1 =
+* Fix: the "Any *method*" choices listed every shipping method type WooCommerce knows, even one with no enabled instance in any zone. Picking such a type did nothing — the product simply lost one way to travel, with no hint why. Types with nothing enabled behind them are now left out, on the same rule as disabled instances: one a product already uses stays, marked "(no method enabled)".
+
 = 1.2.0 =
 * The *Allowed shipping methods* field no longer lists methods you have switched off in WooCommerce. A shop that has reorganised its zones can carry dozens of disabled leftovers, and offering them made the field unusable. A disabled method a product already uses is still listed, marked "(disabled)", so no rule is dropped without you seeing it.
 * New filter `crfw_show_disabled_shipping_methods` to list them anyway; `crfw_shipping_method_choices` now receives the product's stored ids as a second argument.
@@ -112,6 +115,9 @@ Not unless you tick "Remove data" in the settings first. By default nothing is d
 * Initial release: per-product minimum quantity and minimum spend, store-wide minimum order amount, per-product allowed shipping methods (intersection across the cart), editable messages, classic + block cart/checkout, HPOS compatible, `[crfw_minimum]` shortcode, Persian/Arabic/German translations.
 
 == Upgrade Notice ==
+
+= 1.2.1 =
+Method types with no enabled shipping method behind them are no longer offered. Existing product rules are untouched.
 
 = 1.2.0 =
 The shipping-method field now hides methods disabled in WooCommerce. Existing product rules are untouched.

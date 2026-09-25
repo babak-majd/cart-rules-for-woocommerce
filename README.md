@@ -56,8 +56,8 @@ where a WooCommerce user expects them (below).
 
 ### Works on any WooCommerce site
 
-- Shipping choices are read live from WooCommerce: every registered method type (core or
-  third-party) and every **enabled** zone instance — a method switched off in WooCommerce is not
+- Shipping choices are read live from WooCommerce: every method type that has at least one
+  enabled instance (core or third-party) and every **enabled** zone instance — a method switched off in WooCommerce is not
   offered, unless the product already uses it (then it stays, marked "(disabled)"). Matching uses
   both the rate id and the method id, so methods that do not use zones still work through
   "Any *method*".

@@ -2,10 +2,10 @@
 # This file is distributed under the GPL-2.0-or-later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Cart Rules for WooCommerce 1.2.0\n"
+"Project-Id-Version: Cart Rules for WooCommerce 1.2.1\n"
 "Report-Msgid-Bugs-To: https://github.com/babak-majd/cart-rules-for-woocommerce/issues\n"
-"POT-Creation-Date: 2026-09-25 11:21+0000\n"
-"PO-Revision-Date: 2026-09-25 11:21+0000\n"
+"POT-Creation-Date: 2026-09-25 12:01+0000\n"
+"PO-Revision-Date: 2026-09-25 12:01+0000\n"
 "Last-Translator: Baabak Majd <baabak.majd@gmail.com>\n"
 "Language-Team: German\n"
 "Language: de_DE\n"
@@ -148,8 +148,8 @@ msgid "one exact method you configured in one zone, under its own name. Best whe
 msgstr "genau die eine Versandart, die du in einer Zone eingerichtet hast, unter ihrem eigenen Namen. Am besten, wenn nur dieser eine Dienst das Produkt befördern kann."
 
 #: includes/admin/class-crfw-help.php:177
-msgid "Only methods that are switched on are listed. If one is missing, enable it under WooCommerce → Settings → Shipping. A method you switch off later stays in the list of any product that already uses it, marked “(disabled)”, so no rule disappears without you seeing it."
-msgstr "Aufgelistet werden nur eingeschaltete Versandarten. Fehlt eine, aktiviere sie unter WooCommerce → Einstellungen → Versand. Schaltest du später eine ab, bleibt sie bei jedem Produkt, das sie bereits nutzt, in der Liste — mit „(deaktiviert)“ markiert —, damit keine Regel unbemerkt verschwindet."
+msgid "Only methods that are switched on are listed — including the “Any …” choices, which appear once at least one method of that kind is enabled somewhere. If one is missing, enable it under WooCommerce → Settings → Shipping. A method you switch off later stays in the list of any product that already uses it, marked “(disabled)”, so no rule disappears without you seeing it."
+msgstr "Aufgelistet werden nur eingeschaltete Versandarten — auch die „Jede …“-Einträge, die erscheinen, sobald mindestens eine Versandart dieser Art irgendwo aktiv ist. Fehlt eine, aktiviere sie unter WooCommerce → Einstellungen → Versand. Schaltest du später eine ab, bleibt sie bei jedem Produkt, das sie bereits nutzt, in der Liste — mit „(deaktiviert)“ markiert —, damit keine Regel unbemerkt verschwindet."
 
 #: includes/admin/class-crfw-help.php:184
 msgid "The methods themselves are created in %1$sWooCommerce → Settings → Shipping%2$s. Anything you add there appears here automatically, including methods added by other plugins."
@@ -529,13 +529,17 @@ msgstr "Telegram"
 msgid "Enjoying it? %s"
 msgstr "Gefällt es dir? %s"
 
-#: includes/class-crfw-shipping.php:114
+#: includes/class-crfw-shipping.php:143
+msgid "%s (disabled)"
+msgstr "%s (deaktiviert)"
+
+#: includes/class-crfw-shipping.php:162
 msgid "Any “%s” method"
 msgstr "Jede Versandart „%s“"
 
-#: includes/class-crfw-shipping.php:146
-msgid "%s (disabled)"
-msgstr "%s (deaktiviert)"
+#: includes/class-crfw-shipping.php:165
+msgid "%s (no method enabled)"
+msgstr "%s (keine Versandart aktiv)"
 
 #: includes/crfw-functions.php:57
 msgid "“{product}” must be ordered in a quantity of at least {min} (you have {current})."

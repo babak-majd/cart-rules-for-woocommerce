@@ -3,6 +3,14 @@
 All notable changes to this project are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versions follow [SemVer](https://semver.org/).
 
+## [1.2.1] — 2026-09-25
+
+### Fixed
+- The "Any *method*" group listed every registered shipping method type, including types with no
+  enabled instance in any zone. Choosing one silently narrowed the product's shipping options to
+  nothing useful. Such a type is now left out unless the product already uses it, in which case it
+  is listed as "(no method enabled)".
+
 ## [1.2.0] — 2026-09-25
 
 ### Changed

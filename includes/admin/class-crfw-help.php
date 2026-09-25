@@ -174,7 +174,7 @@ class CRFW_Help {
 					</li>
 				</ul>
 				<p class="crfw-tip">
-					<?php esc_html_e( 'Only methods that are switched on are listed. If one is missing, enable it under WooCommerce → Settings → Shipping. A method you switch off later stays in the list of any product that already uses it, marked “(disabled)”, so no rule disappears without you seeing it.', 'cart-rules-for-woocommerce' ); ?>
+					<?php esc_html_e( 'Only methods that are switched on are listed — including the “Any …” choices, which appear once at least one method of that kind is enabled somewhere. If one is missing, enable it under WooCommerce → Settings → Shipping. A method you switch off later stays in the list of any product that already uses it, marked “(disabled)”, so no rule disappears without you seeing it.', 'cart-rules-for-woocommerce' ); ?>
 				</p>
 				<p>
 					<?php

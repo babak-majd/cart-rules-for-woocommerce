@@ -95,31 +95,22 @@ class CRFW_Shipping {
 	 *
 	 * A zone instance the merchant has switched off in WooCommerce is left out —
 	 * offering it would fill the field with methods the shop cannot use (a store
-	 * that has reorganised its zones can carry dozens of them). The one exception
-	 * is an instance this product has already been given: dropping that silently
-	 * would change the product's rule behind the merchant's back, so it stays,
-	 * marked "(disabled)".
+	 * that has reorganised its zones can carry dozens of them). A method *type* is
+	 * left out on the same ground: "Any local pickup" means nothing in a shop with
+	 * no local pickup switched on anywhere, and picking it would quietly leave the
+	 * product with one fewer way to travel.
+	 *
+	 * The one exception either way is a choice this product has already been given:
+	 * dropping that silently would change the product's rule behind the merchant's
+	 * back, so it stays, marked "(disabled)" or "(no method enabled)".
 	 *
 	 * @since 1.2.0 The `$selected` parameter; disabled instances are hidden.
+	 * @since 1.2.1 Method types with no enabled instance are hidden too.
 	 *
 	 * @param string[] $selected Ids already stored on the product, which are always listed.
 	 * @return array<int,array{label:string,options:array<string,string>}>
 	 */
 	public static function get_method_choices( array $selected = array() ) {
-		$groups = array();
-
-		$types = array();
-		foreach ( WC()->shipping()->get_shipping_methods() as $method ) {
-			/* translators: %s: shipping method type, e.g. "Flat rate". */
-			$types[ $method->id ] = sprintf( __( 'Any “%s” method', 'cart-rules-for-woocommerce' ), $method->get_method_title() );
-		}
-		if ( $types ) {
-			$groups[] = array(
-				'label'   => __( 'By method type (every zone)', 'cart-rules-for-woocommerce' ),
-				'options' => $types,
-			);
-		}
-
 		/**
 		 * Filter whether shipping methods disabled in WooCommerce are offered anyway.
 		 *
@@ -132,13 +123,19 @@ class CRFW_Shipping {
 
 		$zones   = WC_Shipping_Zones::get_zones();
 		$zones[] = array( 'zone_id' => 0 ); // "Locations not covered by your other zones".
+
+		// The zone groups first: they also tell us which method types the shop can actually use.
+		$zone_groups = array();
+		$usable      = array();
 		foreach ( $zones as $zone_data ) {
 			$zone    = new WC_Shipping_Zone( $zone_data['zone_id'] );
 			$options = array();
 			foreach ( $zone->get_shipping_methods() as $instance ) {
 				$id    = $instance->id . ':' . $instance->get_instance_id();
 				$label = $instance->get_title();
-				if ( ! $instance->is_enabled() ) {
+				if ( $instance->is_enabled() ) {
+					$usable[ $instance->id ] = true;
+				} else {
 					if ( ! $show_disabled && ! in_array( $id, $selected, true ) ) {
 						continue;
 					}
@@ -148,12 +145,36 @@ class CRFW_Shipping {
 				$options[ $id ] = $label;
 			}
 			if ( $options ) {
-				$groups[] = array(
+				$zone_groups[] = array(
 					'label'   => $zone->get_zone_name(),
 					'options' => $options,
 				);
 			}
 		}
+
+		$types = array();
+		foreach ( WC()->shipping()->get_shipping_methods() as $method ) {
+			$available = isset( $usable[ $method->id ] );
+			if ( ! $available && ! $show_disabled && ! in_array( $method->id, $selected, true ) ) {
+				continue;
+			}
+			/* translators: %s: shipping method type, e.g. "Flat rate". */
+			$label = sprintf( __( 'Any “%s” method', 'cart-rules-for-woocommerce' ), $method->get_method_title() );
+			if ( ! $available ) {
+				/* translators: %s: shipping method type, e.g. "Any “Local pickup” method". */
+				$label = sprintf( __( '%s (no method enabled)', 'cart-rules-for-woocommerce' ), $label );
+			}
+			$types[ $method->id ] = $label;
+		}
+
+		$groups = array();
+		if ( $types ) {
+			$groups[] = array(
+				'label'   => __( 'By method type (every zone)', 'cart-rules-for-woocommerce' ),
+				'options' => $types,
+			);
+		}
+		$groups = array_merge( $groups, $zone_groups );
 
 		/**
 		 * Filter the shipping method choices offered on the product edit screen.
