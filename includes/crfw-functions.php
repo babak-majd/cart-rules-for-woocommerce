@@ -34,6 +34,7 @@ function crfw_option_defaults() {
 		'default_min_qty'          => '',
 		'default_min_amount'       => '',
 		'enforce_qty_input'        => 'yes',
+		'ask_before_add'           => 'yes',
 		'show_product_notice'      => 'yes',
 		'msg_min_qty'              => '',
 		'msg_min_amount'           => '',

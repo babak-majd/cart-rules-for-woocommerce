@@ -31,7 +31,8 @@ where a WooCommerce user expects them (below).
 
 - **Minimum order amount**, compared against the subtotal or the total after coupons.
 - **Default minimum quantity / spend** every product inherits unless it sets its own.
-- Whether quantity fields and *Add to cart* buttons start at the minimum.
+- Whether to **ask** before adding below a minimum (on by default), or instead to silently start
+  quantity fields and *Add to cart* buttons at the minimum.
 - Whether the product page shows the minimum under the price — or place it yourself with the
   `[crfw_minimum]` shortcode (`id`, `class`, `before`, `after`) in page-builder templates.
 - **Every customer-facing message**, with `{product}`, `{products}`, `{min}`, `{current}` placeholders.
@@ -46,13 +47,20 @@ where a WooCommerce user expects them (below).
   nothing in common, no rate is offered and the "no shipping methods" slot explains which
   products cannot ship together.
 
-### Customers are guided before they are refused
+### Customers are asked before they are refused
 
-1. Quantity inputs and archive *Add to cart* buttons default to the minimum (also the block
-   cart/checkout selectors via the Store API).
-2. Adding or updating a line below its minimum is refused with a clear message.
-3. The whole cart is checked on the cart/checkout pages (`woocommerce_check_cart_items`) and in the
-   block checkout (`woocommerce_store_api_cart_errors`). Any violation blocks the order.
+1. Clicking *Add to cart* with less than the minimum opens a dialog: *"“Widget” is sold in a minimum
+   of 5 items. Add 5?"*. Yes adds exactly enough to clear the rule (quantity **or** spend); No adds
+   nothing at all. Once the minimum is met, later clicks pass without a word.
+2. It is not bound to any markup. The click is caught on `document` in the **capture phase**, before
+   handlers bound on the element or delegated through jQuery, so WooCommerce's own buttons and forms,
+   a page builder's `?add-to-cart=` link and a shop's hand-written JavaScript all work. The product is
+   read from `data-product_id` / `data-product-id`, the link, or a `form.cart`; the agreed quantity is
+   written into **every** quantity field for that product (a second, mobile copy included) and the
+   page's own values are restored ~1.5s later.
+3. Whatever slips through is still refused server-side: `woocommerce_add_to_cart_validation`,
+   `woocommerce_check_cart_items` and `woocommerce_store_api_cart_errors`. The dialog is courtesy,
+   not enforcement.
 
 ### Works on any WooCommerce site
 
@@ -82,6 +90,8 @@ includes/crfw-functions.php      option defaults, messages, number helpers
 includes/class-crfw-rules.php    the engine: rules per product, cart evaluation, shipping intersection (no hooks)
 includes/class-crfw-cart.php     customer-facing enforcement (classic + Store API)
 includes/class-crfw-shipping.php woocommerce_package_rates filter, method choices
+includes/class-crfw-frontend.php the REST route + assets behind the "add the rest?" dialog
+assets/js|css/                   the dialog itself (no build step, no dependencies)
 includes/class-crfw-plugin.php   bootstrap, plugin links, credit line
 includes/admin/                  product edit fields, the WC settings tab, the guide screen
 uninstall.php                    opt-in cleanup

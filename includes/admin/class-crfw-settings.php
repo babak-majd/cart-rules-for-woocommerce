@@ -114,8 +114,15 @@ class CRFW_Settings extends WC_Settings_Page {
 			),
 			array(
 				'title'   => __( 'Quantity fields', 'cart-rules-for-woocommerce' ),
-				'desc'    => __( 'Start quantity fields and “Add to cart” buttons at the product\'s minimum quantity', 'cart-rules-for-woocommerce' ),
+				'desc'    => __( 'Start quantity fields and “Add to cart” buttons at the product\'s minimum quantity. Only used when the question above is switched off — otherwise the customer is asked instead.', 'cart-rules-for-woocommerce' ),
 				'id'      => 'crfw_enforce_qty_input',
+				'type'    => 'checkbox',
+				'default' => 'yes',
+			),
+			array(
+				'title'   => __( 'Adding to the cart', 'cart-rules-for-woocommerce' ),
+				'desc'    => __( 'Ask the customer before adding less than the minimum, and offer to make up the difference', 'cart-rules-for-woocommerce' ),
+				'id'      => 'crfw_ask_before_add',
 				'type'    => 'checkbox',
 				'default' => 'yes',
 			),

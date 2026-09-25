@@ -3,6 +3,22 @@
 All notable changes to this project are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versions follow [SemVer](https://semver.org/).
 
+## [1.3.0] — 2026-09-25
+
+### Added
+- A dialog that asks before a minimum refuses the customer: "minimum is 5 — add 5?". Agreeing adds
+  exactly enough to clear the rule (quantity **or** spend); declining adds nothing. Once the minimum
+  is met, later additions are silent.
+- It hooks no particular markup: the click is caught on the document in the capture phase, so it
+  works with WooCommerce's buttons and forms, page-builder links and a shop's own JavaScript alike.
+  Every quantity field for that product is set to the agreed number and restored afterwards.
+- Public REST route `crfw/v1/minimums` (the rules stay in PHP) and the setting
+  **Adding to the cart → Ask the customer …** (`crfw_ask_before_add`, default on).
+
+### Changed
+- "Start quantity fields at the minimum" now applies only when the dialog is switched off; with the
+  dialog on, the fields are left alone so the customer is asked instead of silently corrected.
+
 ## [1.2.1] — 2026-09-25
 
 ### Fixed

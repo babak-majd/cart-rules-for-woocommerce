@@ -2,10 +2,10 @@
 # This file is distributed under the GPL-2.0-or-later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Cart Rules for WooCommerce 1.2.1\n"
+"Project-Id-Version: Cart Rules for WooCommerce 1.3.0\n"
 "Report-Msgid-Bugs-To: https://github.com/babak-majd/cart-rules-for-woocommerce/issues\n"
-"POT-Creation-Date: 2026-09-25 12:01+0000\n"
-"PO-Revision-Date: 2026-09-25 12:01+0000\n"
+"POT-Creation-Date: 2026-09-25 14:31+0000\n"
+"PO-Revision-Date: 2026-09-25 14:31+0000\n"
 "Last-Translator: Baabak Majd <baabak.majd@gmail.com>\n"
 "Language-Team: German\n"
 "Language: de_DE\n"
@@ -288,8 +288,8 @@ msgid "When adding to the cart:"
 msgstr "Beim Legen in den Warenkorb:"
 
 #: includes/admin/class-crfw-help.php:288
-msgid "a quantity below the minimum is refused right away, with the reason."
-msgstr "Eine Menge unter dem Minimum wird sofort abgelehnt, mit Begründung."
+msgid "a short question appears — “this product is sold in a minimum of 5; add 5?” — and nothing is added unless the customer agrees. Once the minimum is met, later additions pass without a word. This works with your theme's own buttons too, and can be switched off under Settings → Cart Rules → Adding to the cart."
+msgstr "Es erscheint eine kurze Frage — „Dieses Produkt wird ab 5 Stück verkauft; 5 hinzufügen?“ — und es landet nichts im Warenkorb, solange der Kunde nicht zustimmt. Ist das Minimum erreicht, laufen weitere Zugaben kommentarlos durch. Das funktioniert auch mit den eigenen Buttons deines Themes und lässt sich unter Einstellungen → Warenkorb-Regeln → Beim Legen in den Warenkorb abschalten."
 
 #: includes/admin/class-crfw-help.php:289
 msgid "In the cart and at checkout:"
@@ -452,80 +452,112 @@ msgid "Quantity fields"
 msgstr "Mengenfelder"
 
 #: includes/admin/class-crfw-settings.php:117
-msgid "Start quantity fields and “Add to cart” buttons at the product's minimum quantity"
-msgstr "Mengenfelder und „In den Warenkorb“-Buttons bei der Mindestmenge des Produkts beginnen lassen"
+msgid "Start quantity fields and “Add to cart” buttons at the product's minimum quantity. Only used when the question above is switched off — otherwise the customer is asked instead."
+msgstr "Mengenfelder und „In den Warenkorb“-Buttons bei der Mindestmenge des Produkts beginnen lassen. Wird nur verwendet, wenn die Frage darüber abgeschaltet ist — sonst wird stattdessen der Kunde gefragt."
 
 #: includes/admin/class-crfw-settings.php:123
+msgid "Adding to the cart"
+msgstr "Beim Legen in den Warenkorb"
+
+#: includes/admin/class-crfw-settings.php:124
+msgid "Ask the customer before adding less than the minimum, and offer to make up the difference"
+msgstr "Den Kunden fragen, bevor weniger als das Minimum gelegt wird, und anbieten, die Differenz aufzufüllen"
+
+#: includes/admin/class-crfw-settings.php:130
 msgid "Product page"
 msgstr "Produktseite"
 
-#: includes/admin/class-crfw-settings.php:124
+#: includes/admin/class-crfw-settings.php:131
 msgid "Show the product's minimum under its price"
 msgstr "Das Minimum des Produkts unter dem Preis anzeigen"
 
-#: includes/admin/class-crfw-settings.php:137
+#: includes/admin/class-crfw-settings.php:144
 msgid "What customers read when a rule is not met. Leave a field empty to use the default shown as its placeholder. Placeholders: {product}, {products}, {min}, {current}."
 msgstr "Was Kunden lesen, wenn eine Regel nicht erfüllt ist. Ein Feld leer lassen, um den als Platzhalter gezeigten Standardtext zu verwenden. Platzhalter: {product}, {products}, {min}, {current}."
 
-#: includes/admin/class-crfw-settings.php:141
+#: includes/admin/class-crfw-settings.php:148
 msgid "Minimum quantity not met"
 msgstr "Mindestmenge nicht erreicht"
 
-#: includes/admin/class-crfw-settings.php:149
+#: includes/admin/class-crfw-settings.php:156
 msgid "Minimum spend not met"
 msgstr "Mindestbetrag nicht erreicht"
 
-#: includes/admin/class-crfw-settings.php:157
+#: includes/admin/class-crfw-settings.php:164
 msgid "Minimum order amount not met"
 msgstr "Mindestbestellwert nicht erreicht"
 
-#: includes/admin/class-crfw-settings.php:165
+#: includes/admin/class-crfw-settings.php:172
 msgid "No shipping method shared by all items"
 msgstr "Keine gemeinsame Versandart für alle Artikel"
 
-#: includes/admin/class-crfw-settings.php:173
+#: includes/admin/class-crfw-settings.php:180
 msgid "Product page note"
 msgstr "Hinweis auf der Produktseite"
 
-#: includes/admin/class-crfw-settings.php:191
+#: includes/admin/class-crfw-settings.php:198
 msgid "Remove data"
 msgstr "Daten entfernen"
 
-#: includes/admin/class-crfw-settings.php:192
+#: includes/admin/class-crfw-settings.php:199
 msgid "Delete all settings and per-product rules when the plugin is deleted"
 msgstr "Beim Löschen des Plugins alle Einstellungen und Produktregeln entfernen"
 
-#: includes/class-crfw-cart.php:307
+#: includes/class-crfw-cart.php:312
 msgid "%s item"
 msgid_plural "%s items"
 msgstr[0] "%s Stück"
 msgstr[1] "%s Stück"
 
-#: includes/class-crfw-plugin.php:80
+#: includes/class-crfw-frontend.php:144
+msgid "“%1$s” is sold in a minimum of %2$s. Add %3$s?"
+msgstr "„%1$s“ wird ab %2$s verkauft. %3$s hinzufügen?"
+
+#: includes/class-crfw-frontend.php:146
+msgid "“%1$s” has a minimum purchase of %2$s. Add %3$s?"
+msgstr "„%1$s“ hat einen Mindestbetrag von %2$s. %3$s hinzufügen?"
+
+#: includes/class-crfw-frontend.php:148
+msgid "%s item(s)"
+msgstr "%s Stück"
+
+#: includes/class-crfw-frontend.php:149
+msgid "Yes, add them"
+msgstr "Ja, hinzufügen"
+
+#: includes/class-crfw-frontend.php:150
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#: includes/class-crfw-frontend.php:151
+msgid "Minimum order"
+msgstr "Mindestbestellung"
+
+#: includes/class-crfw-plugin.php:81
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: includes/class-crfw-plugin.php:81
+#: includes/class-crfw-plugin.php:82
 msgid "Guide"
 msgstr "Anleitung"
 
-#: includes/class-crfw-plugin.php:97
+#: includes/class-crfw-plugin.php:98
 msgid "Docs"
 msgstr "Dokumentation"
 
-#: includes/class-crfw-plugin.php:98
+#: includes/class-crfw-plugin.php:99
 msgid "Support"
 msgstr "Support"
 
-#: includes/class-crfw-plugin.php:99
+#: includes/class-crfw-plugin.php:100
 msgid "Buy me a coffee ☕"
 msgstr "Spendier mir einen Kaffee ☕"
 
-#: includes/class-crfw-plugin.php:113
+#: includes/class-crfw-plugin.php:114
 msgid "Telegram"
 msgstr "Telegram"
 
-#: includes/class-crfw-plugin.php:118
+#: includes/class-crfw-plugin.php:119
 msgid "Enjoying it? %s"
 msgstr "Gefällt es dir? %s"
 
@@ -541,22 +573,22 @@ msgstr "Jede Versandart „%s“"
 msgid "%s (no method enabled)"
 msgstr "%s (keine Versandart aktiv)"
 
-#: includes/crfw-functions.php:57
+#: includes/crfw-functions.php:58
 msgid "“{product}” must be ordered in a quantity of at least {min} (you have {current})."
 msgstr "„{product}“ muss in einer Menge von mindestens {min} bestellt werden (du hast {current})."
 
-#: includes/crfw-functions.php:59
+#: includes/crfw-functions.php:60
 msgid "“{product}” requires a minimum purchase of {min} (you have {current})."
 msgstr "„{product}“ erfordert einen Mindestbetrag von {min} (du hast {current})."
 
-#: includes/crfw-functions.php:61
+#: includes/crfw-functions.php:62
 msgid "A minimum order of {min} is required to check out (your order is {current})."
 msgstr "Für die Bestellung ist ein Mindestbestellwert von {min} erforderlich (deine Bestellung: {current})."
 
-#: includes/crfw-functions.php:63
+#: includes/crfw-functions.php:64
 msgid "The items in your cart cannot be shipped together: no shipping method is available for all of them. Please order {products} separately."
 msgstr "Die Artikel in deinem Warenkorb können nicht zusammen versendet werden: Es gibt keine Versandart, die für alle verfügbar ist. Bitte bestelle {products} separat."
 
-#: includes/crfw-functions.php:65
+#: includes/crfw-functions.php:66
 msgid "Minimum order: {min}"
 msgstr "Mindestbestellung: {min}"

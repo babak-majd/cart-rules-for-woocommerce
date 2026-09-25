@@ -23,8 +23,13 @@ class CRFW_Cart {
 	 * Hook everything up.
 	 */
 	public static function init() {
-		// 1) Guide: quantity inputs and add-to-cart buttons default to the minimum.
-		if ( 'yes' === crfw_get_option( 'enforce_qty_input' ) ) {
+		// 1) Guide the quantity before the customer commits.
+		//
+		// Two ways, and only one of them at a time: either the dialog asks (see
+		// CRFW_Frontend) or the quantity fields are quietly raised to the minimum.
+		// Doing both would mean the fields are already right and the dialog would
+		// have nothing left to ask, so the customer would never learn the rule.
+		if ( 'yes' !== crfw_get_option( 'ask_before_add' ) && 'yes' === crfw_get_option( 'enforce_qty_input' ) ) {
 			add_filter( 'woocommerce_quantity_input_min', array( __CLASS__, 'quantity_input_min' ), 10, 2 );
 			add_filter( 'woocommerce_quantity_input_args', array( __CLASS__, 'quantity_input_args' ), 10, 2 );
 			add_filter( 'woocommerce_loop_add_to_cart_args', array( __CLASS__, 'loop_add_to_cart_args' ), 10, 2 );

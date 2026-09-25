@@ -5,7 +5,7 @@ Tags: woocommerce, minimum order, minimum quantity, shipping methods, cart
 Requires at least: 6.0
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.2.1
+Stable tag: 1.3.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -34,8 +34,9 @@ Three small rules every shop eventually needs, done the WooCommerce way — no p
 
 = Customers are guided, not just refused =
 
-* Quantity fields and "Add to cart" buttons start at the product's minimum (single product page, shop archive, and the block cart/checkout selectors).
-* Adding or updating a line below its minimum is refused with a clear message.
+* **The customer is asked, not refused.** Clicking "Add to cart" with less than the minimum opens a short question — "this product is sold in a minimum of 5; add 5?" — and only adds anything if the customer agrees. Say no and nothing goes in the cart. Once the minimum is met, later additions pass without a word.
+* It works with **any** add-to-cart control: WooCommerce's own buttons and forms, a page builder's link, or a theme's hand-written JavaScript. The question is asked before the shop's own code runs, and the agreed quantity is written into whichever quantity field that code reads.
+* Or switch the question off and have quantity fields and "Add to cart" buttons start at the minimum instead.
 * The product page shows the minimum under the price (optional). Page-builder templates (Elementor, Divi, block templates) can place it anywhere with the `[crfw_minimum]` shortcode.
 
 = Works everywhere =
@@ -83,6 +84,9 @@ Whatever your site has: every shipping method type registered with WooCommerce (
 = A shipping method is missing from the list on the product =
 Methods you have switched off in WooCommerce → Settings → Shipping are not offered, because a shop cannot use them. The same goes for a whole method type: "Any local pickup" is not offered while no local pickup is switched on in any zone. Enable it there and it appears. A disabled method that a product already uses stays in its list, marked "(disabled)", so a rule you set is never dropped silently. To list every method regardless, return true from the `crfw_show_disabled_shipping_methods` filter.
 
+= The dialog does not appear on my theme's custom button =
+It should: the click is caught on the document before any other handler, and the product is recognised from a `data-product_id`/`data-product-id` attribute, an `add-to-cart=` link, or a WooCommerce cart form. If your control carries none of those, the rule is still enforced server-side — the customer is refused rather than asked.
+
 = Can I change the wording? =
 Every message has a field under WooCommerce → Settings → Cart Rules, with placeholders. Or translate the defaults — the plugin is fully internationalised.
 
@@ -98,6 +102,13 @@ Not unless you tick "Remove data" in the settings first. By default nothing is d
 5. A cart below the minimum, with the exact product named.
 
 == Changelog ==
+
+= 1.3.0 =
+* **Ask before refusing.** Adding less than a product's minimum now opens a small dialog offering to make up the difference ("minimum is 5 — add 5?"). Agreeing adds exactly enough to clear the rule; declining adds nothing at all. Once the minimum is met, further additions are silent.
+* The dialog also covers the **minimum spend**: it works out how many items reach the amount and asks for that.
+* **Works with any add-to-cart control** — WooCommerce's buttons and forms, a page builder's link, or a shop's own JavaScript. The click is caught before the shop's code runs, and the agreed quantity is written into every quantity field for that product, so whichever one the shop reads, it reads the right number. The page's own values are put back afterwards.
+* New public REST route `crfw/v1/minimums` serves the figures the dialog shows, so the rules stay in PHP.
+* The dialog and the old "start quantity fields at the minimum" behaviour are alternatives: when the dialog is on, fields are left alone so there is something to ask about.
 
 = 1.2.1 =
 * Fix: the "Any *method*" choices listed every shipping method type WooCommerce knows, even one with no enabled instance in any zone. Picking such a type did nothing — the product simply lost one way to travel, with no hint why. Types with nothing enabled behind them are now left out, on the same rule as disabled instances: one a product already uses stays, marked "(no method enabled)".
@@ -115,6 +126,9 @@ Not unless you tick "Remove data" in the settings first. By default nothing is d
 * Initial release: per-product minimum quantity and minimum spend, store-wide minimum order amount, per-product allowed shipping methods (intersection across the cart), editable messages, classic + block cart/checkout, HPOS compatible, `[crfw_minimum]` shortcode, Persian/Arabic/German translations.
 
 == Upgrade Notice ==
+
+= 1.3.0 =
+Customers are now asked before being refused for a minimum. Switch it off under WooCommerce → Settings → Cart Rules.
 
 = 1.2.1 =
 Method types with no enabled shipping method behind them are no longer offered. Existing product rules are untouched.

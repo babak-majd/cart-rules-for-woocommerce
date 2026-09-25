@@ -1,0 +1,118 @@
+/**
+ * The "add the rest?" dialog.
+ *
+ * Deliberately plain: a shop's own styling should carry the page, so this only
+ * does what a dialog must — sit above everything, be readable, and mirror
+ * itself on a right-to-left store (every rule that has a side uses a logical
+ * property). It inherits the theme's font rather than naming one.
+ */
+
+.crfw-modal {
+	position: fixed;
+	inset: 0;
+	z-index: 999999;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 16px;
+	background: rgba( 17, 24, 39, 0.55 );
+	animation: crfw-fade 0.15s ease;
+}
+
+.crfw-modal__box {
+	max-inline-size: 420px;
+	inline-size: 100%;
+	background: #fff;
+	color: #111827;
+	border-radius: 14px;
+	padding: 22px 22px 18px;
+	box-shadow: 0 20px 50px rgba( 0, 0, 0, 0.25 );
+	text-align: start;
+	animation: crfw-rise 0.18s ease;
+}
+
+.crfw-modal__title {
+	margin: 0 0 8px;
+	font-size: 1.05rem;
+	line-height: 1.5;
+	font-weight: 700;
+	color: inherit;
+}
+
+.crfw-modal__text {
+	margin: 0 0 18px;
+	font-size: 0.95rem;
+	line-height: 1.9;
+	color: #374151;
+}
+
+.crfw-modal__actions {
+	display: flex;
+	gap: 10px;
+	justify-content: flex-end;
+	flex-wrap: wrap;
+}
+
+.crfw-modal__btn {
+	appearance: none;
+	border: 0;
+	border-radius: 9px;
+	padding: 10px 18px;
+	font: inherit;
+	font-weight: 600;
+	line-height: 1.4;
+	cursor: pointer;
+}
+
+.crfw-modal__btn--primary {
+	background: #7f54b3;
+	color: #fff;
+}
+
+.crfw-modal__btn--primary:hover,
+.crfw-modal__btn--primary:focus {
+	background: #6d4599;
+}
+
+.crfw-modal__btn--ghost {
+	background: #f3f4f6;
+	color: #374151;
+}
+
+.crfw-modal__btn--ghost:hover,
+.crfw-modal__btn--ghost:focus {
+	background: #e5e7eb;
+}
+
+@keyframes crfw-fade {
+	from { opacity: 0; }
+	to { opacity: 1; }
+}
+
+@keyframes crfw-rise {
+	from { opacity: 0; transform: translateY( 8px ); }
+	to { opacity: 1; transform: none; }
+}
+
+@media ( prefers-reduced-motion: reduce ) {
+	.crfw-modal,
+	.crfw-modal__box {
+		animation: none;
+	}
+}
+
+@media ( prefers-color-scheme: dark ) {
+	.crfw-modal__box {
+		background: #1f2937;
+		color: #f9fafb;
+	}
+
+	.crfw-modal__text {
+		color: #d1d5db;
+	}
+
+	.crfw-modal__btn--ghost {
+		background: #374151;
+		color: #e5e7eb;
+	}
+}

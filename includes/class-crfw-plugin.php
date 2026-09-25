@@ -40,6 +40,7 @@ final class CRFW_Plugin {
 	private function __construct() {
 		CRFW_Cart::init();
 		CRFW_Shipping::init();
+		CRFW_Frontend::init();
 
 		if ( is_admin() ) {
 			require_once CRFW_PATH . 'includes/admin/class-crfw-product-data.php';

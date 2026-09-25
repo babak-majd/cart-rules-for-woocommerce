@@ -2,10 +2,10 @@
 # This file is distributed under the GPL-2.0-or-later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Cart Rules for WooCommerce 1.2.1\n"
+"Project-Id-Version: Cart Rules for WooCommerce 1.3.0\n"
 "Report-Msgid-Bugs-To: https://github.com/babak-majd/cart-rules-for-woocommerce/issues\n"
-"POT-Creation-Date: 2026-09-25 12:01+0000\n"
-"PO-Revision-Date: 2026-09-25 12:01+0000\n"
+"POT-Creation-Date: 2026-09-25 14:31+0000\n"
+"PO-Revision-Date: 2026-09-25 14:31+0000\n"
 "Last-Translator: Baabak Majd <baabak.majd@gmail.com>\n"
 "Language-Team: Arabic\n"
 "Language: ar\n"
@@ -288,8 +288,8 @@ msgid "When adding to the cart:"
 msgstr "عند الإضافة إلى السلة:"
 
 #: includes/admin/class-crfw-help.php:288
-msgid "a quantity below the minimum is refused right away, with the reason."
-msgstr "تُرفض الكمية الأقل من الحد الأدنى فورًا مع ذكر السبب."
+msgid "a short question appears — “this product is sold in a minimum of 5; add 5?” — and nothing is added unless the customer agrees. Once the minimum is met, later additions pass without a word. This works with your theme's own buttons too, and can be switched off under Settings → Cart Rules → Adding to the cart."
+msgstr "يظهر سؤال قصير — «الحد الأدنى لطلب هذا المنتج ٥ قطع؛ هل نضيف ٥؟» — ولا يُضاف شيء ما لم يوافق العميل. وبعد استيفاء الحد الأدنى تمر الإضافات التالية دون أي سؤال. وهذا يعمل مع أزرار قالبك الخاصة أيضًا، ويمكن إيقافه من الإعدادات ← قواعد السلة ← عند الإضافة إلى السلة."
 
 #: includes/admin/class-crfw-help.php:289
 msgid "In the cart and at checkout:"
@@ -452,50 +452,58 @@ msgid "Quantity fields"
 msgstr "حقول الكمية"
 
 #: includes/admin/class-crfw-settings.php:117
-msgid "Start quantity fields and “Add to cart” buttons at the product's minimum quantity"
-msgstr "بدء حقول الكمية وأزرار «إضافة إلى السلة» من الحد الأدنى لكمية المنتج"
+msgid "Start quantity fields and “Add to cart” buttons at the product's minimum quantity. Only used when the question above is switched off — otherwise the customer is asked instead."
+msgstr "ابدأ حقول الكمية وأزرار «إضافة إلى السلة» من الحد الأدنى لكمية المنتج. لا يُستخدم إلا عند إيقاف الخيار أعلاه؛ وإلا فيُسأل العميل بدلًا من ذلك."
 
 #: includes/admin/class-crfw-settings.php:123
+msgid "Adding to the cart"
+msgstr "عند الإضافة إلى السلة"
+
+#: includes/admin/class-crfw-settings.php:124
+msgid "Ask the customer before adding less than the minimum, and offer to make up the difference"
+msgstr "اسأل العميل قبل إضافة كمية أقل من الحد الأدنى واعرض عليه إكمال الفارق"
+
+#: includes/admin/class-crfw-settings.php:130
 msgid "Product page"
 msgstr "صفحة المنتج"
 
-#: includes/admin/class-crfw-settings.php:124
+#: includes/admin/class-crfw-settings.php:131
 msgid "Show the product's minimum under its price"
 msgstr "عرض الحد الأدنى للمنتج أسفل سعره"
 
-#: includes/admin/class-crfw-settings.php:137
+#: includes/admin/class-crfw-settings.php:144
 msgid "What customers read when a rule is not met. Leave a field empty to use the default shown as its placeholder. Placeholders: {product}, {products}, {min}, {current}."
 msgstr "ما يقرؤه العملاء عند عدم استيفاء قاعدة. اترك الحقل فارغًا لاستخدام النص الافتراضي المعروض كنص بديل. العناصر النائبة: {product}، {products}، {min}، {current}."
 
-#: includes/admin/class-crfw-settings.php:141
+#: includes/admin/class-crfw-settings.php:148
 msgid "Minimum quantity not met"
 msgstr "لم يُستوفَ الحد الأدنى للكمية"
 
-#: includes/admin/class-crfw-settings.php:149
+#: includes/admin/class-crfw-settings.php:156
 msgid "Minimum spend not met"
 msgstr "لم يُستوفَ الحد الأدنى للإنفاق"
 
-#: includes/admin/class-crfw-settings.php:157
+#: includes/admin/class-crfw-settings.php:164
 msgid "Minimum order amount not met"
 msgstr "لم يُستوفَ الحد الأدنى لمبلغ الطلب"
 
-#: includes/admin/class-crfw-settings.php:165
+#: includes/admin/class-crfw-settings.php:172
 msgid "No shipping method shared by all items"
 msgstr "لا توجد طريقة شحن مشتركة بين كل العناصر"
 
-#: includes/admin/class-crfw-settings.php:173
+#: includes/admin/class-crfw-settings.php:180
 msgid "Product page note"
 msgstr "ملاحظة صفحة المنتج"
 
-#: includes/admin/class-crfw-settings.php:191
+#: includes/admin/class-crfw-settings.php:198
 msgid "Remove data"
 msgstr "إزالة البيانات"
 
-#: includes/admin/class-crfw-settings.php:192
+#: includes/admin/class-crfw-settings.php:199
 msgid "Delete all settings and per-product rules when the plugin is deleted"
 msgstr "حذف كل الإعدادات وقواعد المنتجات عند حذف الإضافة"
 
-#: includes/class-crfw-cart.php:307
+#: includes/class-crfw-cart.php:312
 msgid "%s item"
 msgid_plural "%s items"
 msgstr[0] "%s عنصر"
@@ -505,31 +513,55 @@ msgstr[3] "%s عناصر"
 msgstr[4] "%s عنصرًا"
 msgstr[5] "%s عنصر"
 
-#: includes/class-crfw-plugin.php:80
+#: includes/class-crfw-frontend.php:144
+msgid "“%1$s” is sold in a minimum of %2$s. Add %3$s?"
+msgstr "الحد الأدنى لطلب «%1$s» هو %2$s. هل نضيف %3$s؟"
+
+#: includes/class-crfw-frontend.php:146
+msgid "“%1$s” has a minimum purchase of %2$s. Add %3$s?"
+msgstr "الحد الأدنى لشراء «%1$s» هو %2$s. هل نضيف %3$s؟"
+
+#: includes/class-crfw-frontend.php:148
+msgid "%s item(s)"
+msgstr "%s قطعة"
+
+#: includes/class-crfw-frontend.php:149
+msgid "Yes, add them"
+msgstr "نعم، أضِفها"
+
+#: includes/class-crfw-frontend.php:150
+msgid "Cancel"
+msgstr "إلغاء"
+
+#: includes/class-crfw-frontend.php:151
+msgid "Minimum order"
+msgstr "الحد الأدنى للطلب"
+
+#: includes/class-crfw-plugin.php:81
 msgid "Settings"
 msgstr "الإعدادات"
 
-#: includes/class-crfw-plugin.php:81
+#: includes/class-crfw-plugin.php:82
 msgid "Guide"
 msgstr "الدليل"
 
-#: includes/class-crfw-plugin.php:97
+#: includes/class-crfw-plugin.php:98
 msgid "Docs"
 msgstr "التوثيق"
 
-#: includes/class-crfw-plugin.php:98
+#: includes/class-crfw-plugin.php:99
 msgid "Support"
 msgstr "الدعم"
 
-#: includes/class-crfw-plugin.php:99
+#: includes/class-crfw-plugin.php:100
 msgid "Buy me a coffee ☕"
 msgstr "اشترِ لي قهوة ☕"
 
-#: includes/class-crfw-plugin.php:113
+#: includes/class-crfw-plugin.php:114
 msgid "Telegram"
 msgstr "تيليجرام"
 
-#: includes/class-crfw-plugin.php:118
+#: includes/class-crfw-plugin.php:119
 msgid "Enjoying it? %s"
 msgstr "أعجبتك؟ %s"
 
@@ -545,22 +577,22 @@ msgstr "أي طريقة «%s»"
 msgid "%s (no method enabled)"
 msgstr "%s (لا توجد طريقة مفعّلة)"
 
-#: includes/crfw-functions.php:57
+#: includes/crfw-functions.php:58
 msgid "“{product}” must be ordered in a quantity of at least {min} (you have {current})."
 msgstr "يجب طلب «{product}» بكمية لا تقل عن {min} (لديك {current})."
 
-#: includes/crfw-functions.php:59
+#: includes/crfw-functions.php:60
 msgid "“{product}” requires a minimum purchase of {min} (you have {current})."
 msgstr "يتطلب «{product}» حدًا أدنى للشراء قدره {min} (لديك {current})."
 
-#: includes/crfw-functions.php:61
+#: includes/crfw-functions.php:62
 msgid "A minimum order of {min} is required to check out (your order is {current})."
 msgstr "يلزم حد أدنى للطلب قدره {min} لإتمام الشراء (طلبك {current})."
 
-#: includes/crfw-functions.php:63
+#: includes/crfw-functions.php:64
 msgid "The items in your cart cannot be shipped together: no shipping method is available for all of them. Please order {products} separately."
 msgstr "لا يمكن شحن عناصر سلتك معًا: لا توجد طريقة شحن متاحة لجميعها. يرجى طلب {products} بشكل منفصل."
 
-#: includes/crfw-functions.php:65
+#: includes/crfw-functions.php:66
 msgid "Minimum order: {min}"
 msgstr "الحد الأدنى للطلب: {min}"

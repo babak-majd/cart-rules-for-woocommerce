@@ -285,7 +285,7 @@ class CRFW_Help {
 				<h2><?php esc_html_e( '6. What the customer sees', 'cart-rules-for-woocommerce' ); ?></h2>
 				<ul class="crfw-bullets">
 					<li><strong><?php esc_html_e( 'On the product page:', 'cart-rules-for-woocommerce' ); ?></strong> <?php esc_html_e( 'the quantity field starts at the minimum, and a short note under the price says what the minimum is.', 'cart-rules-for-woocommerce' ); ?></li>
-					<li><strong><?php esc_html_e( 'When adding to the cart:', 'cart-rules-for-woocommerce' ); ?></strong> <?php esc_html_e( 'a quantity below the minimum is refused right away, with the reason.', 'cart-rules-for-woocommerce' ); ?></li>
+					<li><strong><?php esc_html_e( 'When adding to the cart:', 'cart-rules-for-woocommerce' ); ?></strong> <?php esc_html_e( 'a short question appears — “this product is sold in a minimum of 5; add 5?” — and nothing is added unless the customer agrees. Once the minimum is met, later additions pass without a word. This works with your theme\'s own buttons too, and can be switched off under Settings → Cart Rules → Adding to the cart.', 'cart-rules-for-woocommerce' ); ?></li>
 					<li><strong><?php esc_html_e( 'In the cart and at checkout:', 'cart-rules-for-woocommerce' ); ?></strong> <?php esc_html_e( 'any unmet rule is shown as an error and the order cannot be placed until it is fixed.', 'cart-rules-for-woocommerce' ); ?></li>
 					<li><strong><?php esc_html_e( 'In the shipping choices:', 'cart-rules-for-woocommerce' ); ?></strong> <?php esc_html_e( 'only the methods allowed for everything in the cart are listed.', 'cart-rules-for-woocommerce' ); ?></li>
 				</ul>

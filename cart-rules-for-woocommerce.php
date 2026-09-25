@@ -3,7 +3,7 @@
  * Plugin Name:          Cart Rules for WooCommerce
  * Plugin URI:           https://github.com/babak-majd/cart-rules-for-woocommerce
  * Description:          Minimum quantity and minimum spend per product, a minimum order amount for the whole cart, and allowed shipping methods per product — all set on the product edit screen.
- * Version:              1.2.1
+ * Version:              1.3.0
  * Author:               Baabak Majd
  * Author URI:           https://bobclub.ir
  * Text Domain:          cart-rules-for-woocommerce
@@ -21,7 +21,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'CRFW_VERSION', '1.2.1' );
+define( 'CRFW_VERSION', '1.3.0' );
 define( 'CRFW_PRODUCT', 'Cart Rules' );
 define( 'CRFW_FILE', __FILE__ );
 define( 'CRFW_PATH', plugin_dir_path( __FILE__ ) );
@@ -88,6 +88,7 @@ function crfw_boot() {
 	require_once CRFW_PATH . 'includes/class-crfw-rules.php';
 	require_once CRFW_PATH . 'includes/class-crfw-cart.php';
 	require_once CRFW_PATH . 'includes/class-crfw-shipping.php';
+	require_once CRFW_PATH . 'includes/class-crfw-frontend.php';
 	require_once CRFW_PATH . 'includes/class-crfw-plugin.php';
 
 	CRFW_Plugin::instance();
