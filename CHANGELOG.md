@@ -3,6 +3,21 @@
 All notable changes to this project are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versions follow [SemVer](https://semver.org/).
 
+## [1.4.0] — 2026-10-03
+
+### Added
+- Settings fields for every string in the dialog (heading, both questions, the way a quantity
+  reads, both buttons), alongside the existing messages. Placeholders `{product}`, `{min}`, `{add}`,
+  `{count}`.
+- Filter `crfw_frontend_config`: the selectors the script treats as an add-to-cart control, a
+  quantity field, a quantity widget and a search scope, plus `restoreDelay`.
+- The dialog's colours, radii and width as CSS custom properties (`--crfw-accent`, `--crfw-surface`,
+  `--crfw-width`, …); dark mode re-points them instead of redeclaring rules.
+
+### Fixed
+- The script's selector list named classes from the shop it was first built on. Removed — the
+  generic patterns already covered them.
+
 ## [1.3.1] — 2026-09-25
 
 ### Fixed

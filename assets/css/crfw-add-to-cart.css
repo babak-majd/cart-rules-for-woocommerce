@@ -7,7 +7,22 @@
  * property). It inherits the theme's font rather than naming one.
  */
 
+/* Every value a shop is likely to want different is a custom property, so a
+   theme can restyle the dialog with one small rule instead of overriding ours. */
 .crfw-modal {
+	--crfw-backdrop: rgba( 17, 24, 39, 0.55 );
+	--crfw-surface: #fff;
+	--crfw-text: #111827;
+	--crfw-muted: #374151;
+	--crfw-accent: #7f54b3;
+	--crfw-accent-hover: #6d4599;
+	--crfw-accent-text: #fff;
+	--crfw-ghost: #f3f4f6;
+	--crfw-ghost-hover: #e5e7eb;
+	--crfw-radius: 14px;
+	--crfw-btn-radius: 9px;
+	--crfw-width: 420px;
+
 	position: fixed;
 	inset: 0;
 	z-index: 999999;
@@ -15,16 +30,16 @@
 	align-items: center;
 	justify-content: center;
 	padding: 16px;
-	background: rgba( 17, 24, 39, 0.55 );
+	background: var( --crfw-backdrop );
 	animation: crfw-fade 0.15s ease;
 }
 
 .crfw-modal__box {
-	max-inline-size: 420px;
+	max-inline-size: var( --crfw-width );
 	inline-size: 100%;
-	background: #fff;
-	color: #111827;
-	border-radius: 14px;
+	background: var( --crfw-surface );
+	color: var( --crfw-text );
+	border-radius: var( --crfw-radius );
 	padding: 22px 22px 18px;
 	box-shadow: 0 20px 50px rgba( 0, 0, 0, 0.25 );
 	text-align: start;
@@ -43,7 +58,7 @@
 	margin: 0 0 18px;
 	font-size: 0.95rem;
 	line-height: 1.9;
-	color: #374151;
+	color: var( --crfw-muted );
 }
 
 .crfw-modal__actions {
@@ -56,7 +71,7 @@
 .crfw-modal__btn {
 	appearance: none;
 	border: 0;
-	border-radius: 9px;
+	border-radius: var( --crfw-btn-radius );
 	padding: 10px 18px;
 	font: inherit;
 	font-weight: 600;
@@ -65,23 +80,23 @@
 }
 
 .crfw-modal__btn--primary {
-	background: #7f54b3;
-	color: #fff;
+	background: var( --crfw-accent );
+	color: var( --crfw-accent-text );
 }
 
 .crfw-modal__btn--primary:hover,
 .crfw-modal__btn--primary:focus {
-	background: #6d4599;
+	background: var( --crfw-accent-hover );
 }
 
 .crfw-modal__btn--ghost {
-	background: #f3f4f6;
-	color: #374151;
+	background: var( --crfw-ghost );
+	color: var( --crfw-muted );
 }
 
 .crfw-modal__btn--ghost:hover,
 .crfw-modal__btn--ghost:focus {
-	background: #e5e7eb;
+	background: var( --crfw-ghost-hover );
 }
 
 @keyframes crfw-fade {
@@ -102,17 +117,11 @@
 }
 
 @media ( prefers-color-scheme: dark ) {
-	.crfw-modal__box {
-		background: #1f2937;
-		color: #f9fafb;
-	}
-
-	.crfw-modal__text {
-		color: #d1d5db;
-	}
-
-	.crfw-modal__btn--ghost {
-		background: #374151;
-		color: #e5e7eb;
+	.crfw-modal {
+		--crfw-surface: #1f2937;
+		--crfw-text: #f9fafb;
+		--crfw-muted: #d1d5db;
+		--crfw-ghost: #374151;
+		--crfw-ghost-hover: #4b5563;
 	}
 }

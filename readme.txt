@@ -5,7 +5,7 @@ Tags: woocommerce, minimum order, minimum quantity, shipping methods, cart
 Requires at least: 6.0
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.3.1
+Stable tag: 1.4.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -25,7 +25,7 @@ Three small rules every shop eventually needs, done the WooCommerce way — no p
 
 * **Minimum order amount** — checked against the subtotal or the total after coupons, your choice.
 * **Store-wide defaults** for minimum quantity and minimum spend, which every product inherits unless it sets its own or opts out.
-* **Every customer-facing message is editable**, with `{product}`, `{min}` and `{current}` placeholders.
+* **Every customer-facing message is editable**, the dialog included, with `{product}`, `{min}`, `{add}` and `{current}` placeholders.
 
 = How the rules combine =
 
@@ -88,7 +88,23 @@ Methods you have switched off in WooCommerce → Settings → Shipping are not o
 It should: the click is caught on the document before any other handler, and the product is recognised from a `data-product_id`/`data-product-id` attribute, an `add-to-cart=` link, or a WooCommerce cart form. If your control carries none of those, the rule is still enforced server-side — the customer is refused rather than asked.
 
 = Can I change the wording? =
-Every message has a field under WooCommerce → Settings → Cart Rules, with placeholders. Or translate the defaults — the plugin is fully internationalised.
+Every message has a field under WooCommerce → Settings → Cart Rules, the dialog's heading, questions and buttons included. Or translate the defaults — the plugin is fully internationalised.
+
+= My theme's add-to-cart button is custom and the dialog does not appear =
+Teach it your markup rather than editing the script:
+
+`add_filter( 'crfw_frontend_config', function ( $config ) {
+    $config['selectors']['productButton'] .= ', .my-theme-add-button';
+    $config['selectors']['quantityField'] .= ', .my-theme-qty input';
+    return $config;
+} );`
+
+Keys: `addToCart`, `productButton`, `productLink`, `cartForm`, `quantityField`, `quantityWidget`, `scope`, plus `restoreDelay` in milliseconds.
+
+= Can I restyle the dialog? =
+It is built from CSS custom properties. One rule is enough:
+
+`.crfw-modal { --crfw-accent: #0a7; --crfw-radius: 4px; --crfw-width: 480px; }`
 
 = Does deleting the plugin remove my per-product rules? =
 Not unless you tick "Remove data" in the settings first. By default nothing is deleted, so reinstalling picks up where you left off.
@@ -102,6 +118,12 @@ Not unless you tick "Remove data" in the settings first. By default nothing is d
 5. A cart below the minimum, with the exact product named.
 
 == Changelog ==
+
+= 1.4.0 =
+* The dialog's wording is now yours: heading, both questions, how a quantity reads, and both buttons each have a field under WooCommerce → Settings → Cart Rules → Messages. They were translatable before, which helped a translator and nobody else.
+* The markup the script recognises is now configurable through the `crfw_frontend_config` filter — the add-to-cart control, the quantity field, the quantity widget, the search scope and how long the agreed quantity stays in the page. A shop whose theme builds its own buttons can teach the plugin its markup instead of forking the script.
+* Fix: the selector list carried class names from the shop this was first built on. They are gone; the generic patterns that remain cover the same markup.
+* The dialog's colours, radii and width are CSS custom properties (`--crfw-accent`, `--crfw-surface`, …), so a theme restyles it with one rule instead of fighting specificity. Dark mode now just re-points those properties.
 
 = 1.3.1 =
 * Fix: the dialog could be triggered by a quantity widget rather than the button. A shop whose quantity box sits inside an element carrying the product's id — a common pattern — had its **+**, **−** and the box itself intercepted, so stepping the quantity opened the question instead of changing the number. Only a real add-to-cart control is watched now: a button, a submit, or a link that says it adds to the cart. Quantity fields and their steppers are left alone.
@@ -129,6 +151,9 @@ Not unless you tick "Remove data" in the settings first. By default nothing is d
 * Initial release: per-product minimum quantity and minimum spend, store-wide minimum order amount, per-product allowed shipping methods (intersection across the cart), editable messages, classic + block cart/checkout, HPOS compatible, `[crfw_minimum]` shortcode, Persian/Arabic/German translations.
 
 == Upgrade Notice ==
+
+= 1.4.0 =
+The dialog's wording is editable in the settings, and its markup rules are filterable. Nothing changes until you change it.
 
 = 1.3.1 =
 Fixes the dialog opening when the quantity steppers were used. Recommended for anyone on 1.3.0.

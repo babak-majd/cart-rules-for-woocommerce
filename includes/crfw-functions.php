@@ -41,6 +41,12 @@ function crfw_option_defaults() {
 		'msg_cart_min'             => '',
 		'msg_shipping_conflict'    => '',
 		'msg_product_notice'       => '',
+		'msg_ask_title'            => '',
+		'msg_ask_qty'              => '',
+		'msg_ask_amount'           => '',
+		'msg_ask_items'            => '',
+		'msg_ask_confirm'          => '',
+		'msg_ask_cancel'           => '',
 		'delete_data_on_uninstall' => 'no',
 	);
 }
@@ -64,6 +70,18 @@ function crfw_default_message( $key ) {
 			return __( 'The items in your cart cannot be shipped together: no shipping method is available for all of them. Please order {products} separately.', 'cart-rules-for-woocommerce' );
 		case 'product_notice':
 			return __( 'Minimum order: {min}', 'cart-rules-for-woocommerce' );
+		case 'ask_title':
+			return __( 'Minimum order', 'cart-rules-for-woocommerce' );
+		case 'ask_qty':
+			return __( '“{product}” is sold in a minimum of {min}. Add {add}?', 'cart-rules-for-woocommerce' );
+		case 'ask_amount':
+			return __( '“{product}” has a minimum purchase of {min}. Add {add}?', 'cart-rules-for-woocommerce' );
+		case 'ask_items':
+			return __( '{count} item(s)', 'cart-rules-for-woocommerce' );
+		case 'ask_confirm':
+			return __( 'Yes, add them', 'cart-rules-for-woocommerce' );
+		case 'ask_cancel':
+			return __( 'Cancel', 'cart-rules-for-woocommerce' );
 	}
 	return '';
 }
@@ -98,6 +116,37 @@ function crfw_message( $key, array $replacements = array() ) {
 		$replace[] = $value;
 	}
 	return str_replace( $search, $replace, $message );
+}
+
+/**
+ * A message template as the merchant left it: their own wording when they wrote
+ * one, the translated default otherwise, with the `{placeholders}` still in it.
+ *
+ * The dialog substitutes its placeholders in the browser, so it needs the
+ * template rather than a finished sentence.
+ *
+ * @since 1.4.0
+ *
+ * @param string $key Message key.
+ * @return string
+ */
+function crfw_message_template( $key ) {
+	$custom = (string) crfw_get_option( 'msg_' . $key );
+	$value  = '' !== trim( $custom ) ? $custom : crfw_default_message( $key );
+
+	/**
+	 * Filter a customer-facing message template before placeholders are substituted.
+	 *
+	 * The same filter as in crfw_message(); here the substitution happens in the
+	 * browser, so the template is handed over with its placeholders intact.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param string $value        The template.
+	 * @param string $key          Message key.
+	 * @param array  $replacements Placeholder values (empty here).
+	 */
+	return (string) apply_filters( 'crfw_message_template', $value, $key, array() );
 }
 
 /**

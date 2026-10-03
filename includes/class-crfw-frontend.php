@@ -154,21 +154,56 @@ class CRFW_Frontend {
 		wp_enqueue_style( 'crfw-add-to-cart', CRFW_URL . 'assets/css/crfw-add-to-cart.css', array(), CRFW_VERSION );
 		wp_enqueue_script( 'crfw-add-to-cart', CRFW_URL . 'assets/js/crfw-add-to-cart.js', array(), CRFW_VERSION, true );
 
+		/**
+		 * What the script treats as an add-to-cart control, as a quantity field, and
+		 * how long it leaves the agreed quantity in the page.
+		 *
+		 * Shops build their own buttons, and no selector list can know them all. A
+		 * theme that this does not recognise can say so here instead of forking the
+		 * script; the defaults cover WooCommerce's own markup and the common
+		 * `data-product_id` pattern.
+		 *
+		 * @since 1.4.0
+		 *
+		 * @param array $config {
+		 *     @type array $selectors     addToCart, productButton, productLink, cartForm,
+		 *                                quantityField, quantityWidget, scope — CSS selectors.
+		 *     @type int   $restoreDelay  Milliseconds before the page's own quantity values
+		 *                                are put back after the click is replayed.
+		 * }
+		 */
+		$config = apply_filters(
+			'crfw_frontend_config',
+			array(
+				'selectors'    => array(
+					'addToCart'      => '.add_to_cart_button, .ajax_add_to_cart, .single_add_to_cart_button, button[name="add-to-cart"], input[name="add-to-cart"], a[href*="add-to-cart="]',
+					'productButton'  => 'button[data-product_id], button[data-product-id], input[data-product_id], input[data-product-id]',
+					'productLink'    => 'a[data-product_id], a[data-product-id]',
+					'cartForm'       => 'form.cart',
+					'quantityField'  => 'input[name="quantity"], input.qty, .qty input, input[data-qty], input[class*="qty"], input[type="number"]',
+					'quantityWidget' => '.quantity, .qty, [class*="qty-"], [class*="-qty"], [class*="quantity"]',
+					'scope'          => 'form.cart, .product, .elementor-widget-container, li, article, div',
+				),
+				'restoreDelay' => 1500,
+			)
+		);
+
 		wp_localize_script(
 			'crfw-add-to-cart',
 			'crfwAddToCart',
 			array(
-				'endpoint' => rest_url( self::REST_NS . '/minimums' ),
-				'i18n'     => array(
-					/* translators: 1: product name, 2: the minimum, 3: how many will be added. */
-					'askQty'    => __( '“%1$s” is sold in a minimum of %2$s. Add %3$s?', 'cart-rules-for-woocommerce' ),
-					/* translators: 1: product name, 2: the minimum amount, 3: how many will be added. */
-					'askAmount' => __( '“%1$s” has a minimum purchase of %2$s. Add %3$s?', 'cart-rules-for-woocommerce' ),
-					/* translators: %s: a quantity. */
-					'items'     => __( '%s item(s)', 'cart-rules-for-woocommerce' ),
-					'confirm'   => __( 'Yes, add them', 'cart-rules-for-woocommerce' ),
-					'cancel'    => __( 'Cancel', 'cart-rules-for-woocommerce' ),
-					'title'     => __( 'Minimum order', 'cart-rules-for-woocommerce' ),
+				'endpoint'     => rest_url( self::REST_NS . '/minimums' ),
+				'selectors'    => isset( $config['selectors'] ) ? $config['selectors'] : array(),
+				'restoreDelay' => isset( $config['restoreDelay'] ) ? (int) $config['restoreDelay'] : 1500,
+				// The wording is the merchant's: these come from the settings screen,
+				// falling back to the translated defaults (see crfw_default_message()).
+				'i18n'         => array(
+					'askQty'    => crfw_message_template( 'ask_qty' ),
+					'askAmount' => crfw_message_template( 'ask_amount' ),
+					'items'     => crfw_message_template( 'ask_items' ),
+					'title'     => crfw_message_template( 'ask_title' ),
+					'confirm'   => crfw_message_template( 'ask_confirm' ),
+					'cancel'    => crfw_message_template( 'ask_cancel' ),
 				),
 			)
 		);

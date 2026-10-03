@@ -35,7 +35,8 @@ where a WooCommerce user expects them (below).
   quantity fields and *Add to cart* buttons at the minimum.
 - Whether the product page shows the minimum under the price — or place it yourself with the
   `[crfw_minimum]` shortcode (`id`, `class`, `before`, `after`) in page-builder templates.
-- **Every customer-facing message**, with `{product}`, `{products}`, `{min}`, `{current}` placeholders.
+- **Every customer-facing message**, the dialog's heading, questions and buttons included, with
+  `{product}`, `{products}`, `{min}`, `{add}`, `{count}`, `{current}` placeholders.
 - Whether to remove all data on uninstall (off by default).
 
 ### How the rules combine
@@ -113,6 +114,7 @@ uninstall.php                    opt-in cleanup
 | `crfw_show_disabled_shipping_methods( $bool, $selected )` | Offer methods disabled in WooCommerce too (default `false`). |
 | `crfw_message_template( $message, $key, $replacements )` | The message template before placeholders. |
 | `crfw_settings( $settings )` | The settings-tab fields. |
+| `crfw_frontend_config( $config )` | What the dialog's script treats as a button, a quantity field, a quantity widget and a scope (`selectors`), and `restoreDelay` in ms. |
 
 ### Data
 

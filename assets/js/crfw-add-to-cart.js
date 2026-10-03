@@ -24,6 +24,22 @@
 		return;
 	}
 
+	/**
+	 * What counts as a control, a quantity field, and how long to leave the agreed
+	 * quantity in place. Every one of these comes from the server (and through the
+	 * `crfw_frontend_config` filter), so a shop whose markup this does not recognise
+	 * can teach it without touching this file.
+	 */
+	var sel = cfg.selectors || {};
+	var ADD_TO_CART = sel.addToCart || '.add_to_cart_button, .ajax_add_to_cart, .single_add_to_cart_button, button[name="add-to-cart"], input[name="add-to-cart"], a[href*="add-to-cart="]';
+	var BY_PRODUCT = sel.productButton || 'button[data-product_id], button[data-product-id], input[data-product_id], input[data-product-id]';
+	var PRODUCT_LINK = sel.productLink || 'a[data-product_id], a[data-product-id]';
+	var CART_FORM = sel.cartForm || 'form.cart';
+	var QUANTITY_FIELD = sel.quantityField || 'input[name="quantity"], input.qty, .qty input, input[data-qty], input[class*="qty"], input[type="number"]';
+	var QUANTITY_WIDGET = sel.quantityWidget || '.quantity, .qty, [class*="qty-"], [class*="-qty"], [class*="quantity"]';
+	var SCOPE = sel.scope || 'form.cart, .product, .elementor-widget-container, li, article, div';
+	var RESTORE_DELAY = parseInt( cfg.restoreDelay, 10 ) > 0 ? parseInt( cfg.restoreDelay, 10 ) : 1500;
+
 	var cache = {};       // product id -> rules, filled on first use.
 	var replaying = null; // The element whose click we are replaying.
 
@@ -61,7 +77,7 @@
 		if ( node.matches && node.matches( 'input, select, textarea, label' ) ) {
 			return true;
 		}
-		return !! node.closest( '.quantity, .qty, .nima-qty, [class*="qty-"], [class*="-qty"], [class*="quantity"]' );
+		return !! node.closest( QUANTITY_WIDGET );
 	}
 
 	/**
@@ -75,35 +91,26 @@
 			return null;
 		}
 
-		var known = target.closest(
-			[
-				'.add_to_cart_button',
-				'.ajax_add_to_cart',
-				'.single_add_to_cart_button',
-				'button[name="add-to-cart"]',
-				'input[name="add-to-cart"]',
-				'a[href*="add-to-cart="]'
-			].join( ',' )
-		);
+		var known = target.closest( ADD_TO_CART );
 		if ( known ) {
 			return isQuantityControl( known ) ? null : known;
 		}
 
 		// A theme's own control: a button or submit that names the product.
-		var byData = target.closest( 'button[data-product_id], button[data-product-id], input[data-product_id], input[data-product-id]' );
+		var byData = target.closest( BY_PRODUCT );
 		if ( byData && ! isQuantityControl( byData ) ) {
 			return byData;
 		}
 
 		// A link that names the product counts only when it says it adds to the cart —
 		// otherwise it is just a link to the product.
-		var link = target.closest( 'a[data-product_id], a[data-product-id]' );
+		var link = target.closest( PRODUCT_LINK );
 		if ( link && ! isQuantityControl( link ) && /add[-_ ]?to[-_ ]?cart|\batc\b|cart/i.test( link.className + ' ' + ( link.getAttribute( 'data-action' ) || '' ) ) ) {
 			return link;
 		}
 
 		// WooCommerce's own form: its submit button.
-		var form = target.closest( 'form.cart' );
+		var form = target.closest( CART_FORM );
 		if ( form && target.closest( '[type="submit"], button' ) && ! isQuantityControl( target ) ) {
 			return target.closest( '[type="submit"], button' );
 		}
@@ -115,7 +122,7 @@
 	 * server maps them back to the product the rules live on.
 	 */
 	function productIdFor( el ) {
-		var form = el.closest ? el.closest( 'form.cart, form' ) : null;
+		var form = el.closest ? el.closest( CART_FORM + ', form' ) : null;
 		var candidates = [
 			el.getAttribute( 'data-variation_id' ),
 			el.getAttribute( 'data-variation-id' ),
@@ -143,7 +150,7 @@
 	function quantityFields( el, productId ) {
 		var fields = [];
 		var seen = [];
-		var selector = 'input[name="quantity"], input.qty, .qty input, input[data-qty], .nima-qty-input, input[type="number"]';
+		var selector = QUANTITY_FIELD;
 
 		function add( node ) {
 			if ( node && -1 === seen.indexOf( node ) ) {
@@ -153,7 +160,7 @@
 		}
 
 		// The field next to the control comes first: it is the one the customer typed in.
-		var scope = el.closest ? el.closest( 'form.cart, .product, .nima-atc-wrap, .elementor-widget-container, li, article, div' ) : null;
+		var scope = el.closest ? el.closest( SCOPE ) : null;
 		var hops = 0;
 		while ( scope && hops < 4 ) {
 			var local = scope.querySelectorAll( selector );
@@ -254,19 +261,22 @@
 
 	/* ----------------------------------------------------------- the dialog */
 
+	function fill( template, values ) {
+		var text = String( template || '' );
+		Object.keys( values ).forEach( function ( key ) {
+			text = text.split( '{' + key + '}' ).join( values[ key ] );
+		} );
+		return text;
+	}
+
 	function ask( rules, gap ) {
 		var i18n = cfg.i18n || {};
-		var quantity = String( gap.quantity ).replace( /\d/g, function ( d ) {
-			return ( 0 ).toLocaleString().charAt( 0 ) === '0' ? d : d; // keep the site's own digits alone
-		} );
-		var amount = 'amount' === gap.reason
-			? ( rules.min_amount_html || rules.min_amount )
-			: ( i18n.items || '%s' ).replace( '%s', rules.min_qty );
-		var template = 'amount' === gap.reason ? i18n.askAmount : i18n.askQty;
-		var text = String( template || '' )
-			.replace( '%1$s', rules.name || '' )
-			.replace( '%2$s', amount )
-			.replace( '%3$s', ( i18n.items || '%s' ).replace( '%s', quantity ) );
+		var items = function ( n ) { return fill( i18n.items || '{count}', { count: n } ); };
+		var minimum = 'amount' === gap.reason ? ( rules.min_amount_html || rules.min_amount ) : items( rules.min_qty );
+		var text = fill(
+			'amount' === gap.reason ? i18n.askAmount : i18n.askQty,
+			{ product: rules.name || '', min: minimum, add: items( gap.quantity ) }
+		);
 
 		return new Promise( function ( resolve ) {
 			var overlay = document.createElement( 'div' );
@@ -411,7 +421,7 @@
 				replay( el );
 				// The shop's handler reads the fields while it runs; give it that
 				// moment, then leave the page as we found it.
-				window.setTimeout( restore, 1500 );
+				window.setTimeout( restore, RESTORE_DELAY );
 			} );
 		} );
 	}, true );
